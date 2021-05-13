@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2015-11-04 16:01:54" root="CConsultation-0">
+  <object class="CConsultation" id="CConsultation-0" plageconsult_id="CPlageconsult-1" patient_id="CPatient-2">
+    <field name="chrono">16</field>
+    <field name="heure">10:00:00</field>
+    <field name="duree">20</field>
+    <field name="secteur1">50</field>
+  </object>
+  <object class="CPlageconsult" id="CPlageconsult-1" chir_id="CMediusers-141">
+    <field name="freq">00:20:00</field>
+    <field name="libelle">automatique</field>
+    <field name="locked">0</field>
+    <field name="remplacant_ok">0</field>
+    <field name="desistee">0</field>
+    <field name="color">ABABAB</field>
+    <field name="pct_retrocession">70</field>
+    <field name="pour_tiers">0</field>
+    <field name="send_notifications">1</field>
+    <field name="date">now</field>
+    <field name="debut">07:00:00</field>
+    <field name="fin">16:00:00</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-141" user_id="CUser-141">
+  </object>
+  <object class="CUser" id="CUser-141">
+    <field name="user_username">CHIRTEST</field>
+    <field name="user_first_name">Test</field>
+    <field name="user_last_name">CHIR</field>
+  </object>
+  <object class="CPatient" id="CPatient-2">
+    <field name="nom">PATIENTAAT</field>
+    <field name="prenom">Patientfirstname</field>
+    <field name="sexe">m</field>
+    <field name="naissance">1995-12-12</field>
+    <field name="code_regime">02</field>
+    <field name="caisse_gest">111</field>
+  </object>
+</mediboard-export>

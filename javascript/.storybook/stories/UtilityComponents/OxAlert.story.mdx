@@ -1,0 +1,175 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import OxButton from '@system/OxButton'
+import OxAlert from '@system/OxAlert'
+import OxAlertManagerApi from "@system/OxAlertManagerApi";
+import OxStoreCore from "@system/OxStoreCore"
+
+export const alertApi = new OxAlertManagerApi(OxStoreCore)
+
+export const displayMessage = () => {
+  alertApi.setAlert(
+    "Some message",
+    {
+      label: "Ok",
+      callback: false
+    }
+  )
+}
+
+export const displayOkButton = () => {
+  alertApi.setAlert(
+    "Something append",
+    {
+      label: "Yes",
+      callback: () => {
+        console.log("Yes button clicked")
+      }
+    }
+  )
+}
+
+export const displayNotOkButton = () => {
+  alertApi.setAlert(
+    "Are you sure ?",
+    {
+      label: "Sure",
+      callback: () => {
+        console.log("Sure button clicked")
+      }
+    },
+    {
+      label: "No !",
+      callback: () => {
+        console.log("No button clicked")
+      }
+    }
+  )
+}
+
+<Meta
+  title="Utility Components/BasicsAlert"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+    },
+    controls: {
+      sort: 'alpha'
+    }
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { OxButton, OxAlert },
+  props: Object.keys(argTypes),
+  methods: {},
+  data() {
+    return {
+      alertApi: alertApi,
+      message: "Test"
+    }
+  },
+  template: '<div><ox-button label="Show" @click="clickFunction"/><ox-alert :alert-manager="alertApi"/></div>'
+});
+
+
+# Alert
+
+Methods that provide to the `OxVue` components to display messages at the top level.
+
+## Demo
+
+<Preview mdxSource={`
+  (...)
+  private someFunction (): void {
+      this.alert("Some message")
+  }
+  (...)
+`}>
+  <Story name="Demo" args={{ clickFunction: displayMessage }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+## Button options
+
+Options can be specified to set the button `label` and the button `callback`.
+
+
+<Preview mdxSource={`
+  (...)
+  private someFunction (): void {
+      this.alert(
+          "Are you sure ?",
+          {
+              label: "Sure",
+              callback: () => {
+                  console.log("Sure button clicked")
+              }
+          },
+          {
+              label: "No !",
+              callback: () => {
+                  console.log("No button clicked")
+              }
+          }
+      )
+  }
+  (...)
+`}>
+  <Story name="Button options" args={{ clickFunction: displayOkButton }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+## Deny button
+
+Additionnals options are availables to set another button, usually used to deny the displayed message.
+
+<Preview mdxSource={`
+  (...)
+  private someFunction (): void {
+      this.alert(
+          "Something append",
+          {
+              label: "Yes",
+              callback: () => {
+                  console.log("Yes button clicked")
+              }
+          }
+      )
+  }
+  (...)
+`}>
+  <Story name="Two buttons" args={{ clickFunction: displayNotOkButton }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+## Outside an OxVue component
+
+You can display alerts outside the OxVue components use the `OxAlertManagerApi` and the `OxStoreCore` :
+
+<Preview mdxSource={`
+  (...)
+  import OxAlertManagerApi from "@system/OxAlertManagerApi"
+  import OxStoreCore from "@system/OxStoreCore"
+  (...)
+  private someFunction (): void {
+      (new OxAlertManagerApi(OxStoreCore)).setAlert(
+          "Some message",
+          {
+              label: "Ok"
+          }
+      )
+  }
+  (...)
+`}>
+  <Story name="Outside OxVue" args={{ clickFunction: displayMessage }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>

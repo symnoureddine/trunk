@@ -1,0 +1,64 @@
+/*
+  @package Mediboard\Patients
+  @author  SAS OpenXtrem <dev@openxtrem.com>
+  @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+  @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+*/
+
+@import "@system/Utils";
+
+
+.PatientSmallLine {
+  @include hoverable;
+
+  align-items: center;
+  border-bottom: 1px solid alpha($grey-900, 0.12);
+  display: flex;
+  flex-wrap: nowrap;
+  transition: background-color .1s;
+  width: 100%;
+
+  &.last {
+    border-bottom: none;
+  }
+
+  &-adresse,
+  &-telephone {
+    @include black-emphasis($medium);
+    @include body2;
+  }
+
+  &-adresse {
+    flex: 2;
+  }
+
+  &-telephone {
+    flex: 1;
+  }
+
+  &-cta {
+    flex: 0;
+    padding: $space*4;
+  }
+
+  &-identite {
+    @include black-emphasis($high);
+    @include body2;
+
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+  }
+
+  &-naissance {
+    @include black-emphasis($high);
+    @include body2;
+
+    flex: 1;
+  }
+
+  &-photo {
+    flex: 0;
+    padding: $space*2 $space*4;
+  }
+}

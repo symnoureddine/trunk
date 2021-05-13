@@ -1,0 +1,108 @@
+Options -Indexes
+
+<IfModule mod_env.c>
+  SetEnv AllowOverrideDefined "true"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  # DEFLATE by type - html, text, css, xml, svg, json
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml image/svg+xml application/json
+
+  # DEFLATE by type - javascript
+  AddOutputFilterByType DEFLATE application/x-javascript application/javascript text/javascript text/x-js text/x-javascript
+
+  # DEFLATE by extension
+  AddOutputFilter DEFLATE js css htm html xml svg
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Apache request duration and start time, in microseconds : D=187183 t=1392367646740874
+  Header set X-Mb-RequestInfo '%D %t'
+
+  <IfModule mod_setenvif.c>
+    <FilesMatch "\.php$">
+      SetEnvIf X-Requested-With "XMLHttpRequest" IS_AJAX
+      Header add Set-Cookie "timing=%D %t" env=!IS_AJAX
+    </FilesMatch>
+  </IfModule>
+
+  # P3P header fixing logout issues in IE
+  Header set P3P 'CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"'
+
+  # 1 day cache for CSS and JS
+  <FilesMatch "\.(js|css)$">
+  Header set Cache-Control "max-age=86400, public"
+  </FilesMatch>
+
+  # 1 week cache for not versionned resources
+  <FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|swf|pdf|jar|svg)$">
+  Header set Cache-Control "max-age=604800, public"
+  </FilesMatch>
+
+  # 1 month cache for versionned resources
+  <FilesMatch "\.(js|css|flv|gif|jpg|jpeg|png|ico|swf|pdf|jar)(\?[^&]+)$">
+  Header set Cache-Control "max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+<FilesMatch "\.(tpl|tpl\.php|class\.php|sh|cer|p7b|crl)$">
+  order allow,deny
+  deny from all
+</FilesMatch>
+
+<FilesMatch "mb-log\.html">
+  order allow,deny
+  deny from all
+</FilesMatch>
+
+<FilesMatch "pid\.(\d+)$">
+  order allow,deny
+  deny from all
+</FilesMatch>
+
+<IfModule mod_alias.c>
+  # modules/*/*.php
+  RedirectMatch 403 modules/[^/]+/[^/]+\.php$
+
+  # modules/*/controllers/*.php
+  RedirectMatch 403 modules/[^/]+/controllers/[^/]+\.php$
+
+  # vendor/*.php
+  RedirectMatch 403 vendor/[^/]+(/[^/]+)?\.php$
+
+  # (cli|shell)/*
+  RedirectMatch 403 (cli|shell|bin|libpkg)/*$
+
+  # (includes|locales|shell|templates).*
+  RedirectMatch 403 (includes|locales)/[^/]+(/[^/]+)?\.(php|ttf)$
+
+  # tmp/templates_c
+  RedirectMatch 403 /tmp/(templates_c|phpthumb|shared)/
+</IfModule>
+
+<IfModule mod_php5.c>
+  php_flag magic_quotes_gpc        off
+  php_flag session.auto_start      off
+</IfModule>
+
+<IfModule mod_php7.c>
+  php_flag magic_quotes_gpc        off
+  php_flag session.auto_start      off
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  # not an existing dir
+  RewriteCond %{REQUEST_FILENAME} !-d
+  # not an existing file
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^api/ index_v2.php [L] # api
+#  RewriteRule ^gui/ index_v2.php [L] # gui
+#  RewriteRule ^index.php index_v2.php [L] # legacy
+  RewriteRule ^openapi$ vendor/openxtrem/swagger/index.php [L] # openapi
+  RewriteRule ^installation/(?!vue/dist) installation/index.php [L] # installation
+  RewriteRule ^devtools$ vendor/openxtrem/devtools/index.php [L] # devtools
+  RewriteRule ^storybook$ tmp/storybook/ [L] # storybook
+</IfModule>
+
+# php_flag session.cookie_httponly on # Still needed because of yoplet

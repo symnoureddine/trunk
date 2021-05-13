@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" bootstrap="tests/bootstrap.php"
+         backupGlobals="false" backupStaticAttributes="false" colors="true" processIsolation="false" stopOnError="false"
+         stopOnFailure="false" stopOnIncomplete="false" stopOnSkipped="false" verbose="true">
+  <php>
+    <const name="PHPUNIT_MEDIBOARD_TESTSUITE" value="true"/>
+  </php>
+  <testsuites>
+    <testsuite name="UnitTestSuite">
+      <directory>cli/tests/Unit/</directory>
+      <directory>core/tests/Unit/</directory>
+      <directory>modules/*/tests/Unit/</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>

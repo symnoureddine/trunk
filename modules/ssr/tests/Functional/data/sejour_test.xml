@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2016-09-02 15:53:15" root="CSejour-1">
+  <object class="CPatient" id="CPatient-1">
+    <field name="nom">PATIENTLASTNAME</field>
+    <field name="prenom">Patientfirstname</field>
+    <field name="naissance">1999-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+  </object>
+  <object class="CSejour" id="CSejour-2230" patient_id="CPatient-1">
+    <field name="type">ssr</field>
+    <field name="entree_prevue">now monday this week</field>
+    <field name="sortie_prevue">now this sunday</field>
+    <field name="praticien_id">selenium</field>
+    <field name="group_id">1</field>
+  </object>
+  <object class="CCategoryPrescription" id="CCategoryPrescription-34">
+    <field name="chapitre">kine</field>
+    <field name="nom">Test</field>
+    <field name="description"></field>
+    <field name="header"></field>
+    <field name="prescription_executant">0</field>
+    <field name="cible_importante">0</field>
+    <field name="only_cible">0</field>
+    <field name="inactive">0</field>
+  </object>
+  <object class="CElementPrescription" id="CElementPrescription-35" category_prescription_id="CCategoryPrescription-34">
+    <field name="libelle">Test element</field>
+    <field name="cancelled">0</field>
+    <field name="prescriptible_kine">0</field>
+    <field name="prescriptible_infirmiere">0</field>
+    <field name="prescriptible_AS">0</field>
+    <field name="prescriptible_sage_femme">0</field>
+    <field name="prescriptible_dieteticien">0</field>
+    <field name="rdv">0</field>
+    <field name="consultation">0</field>
+    <field name="important">0</field>
+  </object>
+  <object class="CFunctionCategoryPrescription" id="CFunctionCategoryPrescription-1" function_id="CFunctions-13" category_prescription_id="CCategoryPrescription-34"/>
+  <object class="CFunctions" id="CFunctions-13">
+    <field name="type">Cabinet</field>
+    <field name="text">chir</field>
+    <field name="actif">1</field>
+  </object>
+</mediboard-export>

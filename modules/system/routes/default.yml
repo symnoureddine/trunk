@@ -1,0 +1,181 @@
+system_shemas_models:
+  path: api/schemas/{resource_name}
+  controller: Ox\Mediboard\System\Controllers\CSchemaController::models
+  requirements:
+    resource_name: '\w+'
+  methods: GET
+  defaults:
+    permission: none
+  options:
+    description: Get resource schema
+    parameters:
+      fieldsets: '\w+'
+    accept:
+      - application/json
+
+system_shemas_routes:
+  path: api/routes/{path}/{method}
+  controller: Ox\Mediboard\System\Controllers\CSchemaController::routes
+  requirements:
+    method: get|post|put|delete|head|options
+    path: '\w+'
+  methods: GET
+  defaults:
+    permission: none
+  options:
+    description: Get routes OAS3 (path encoded in base64)
+    accept:
+      - application/json
+
+system_bulk_operations:
+  path: api/bulkOperations
+  controller: Ox\Mediboard\System\Controllers\CBulkController::execute
+  methods: POST
+  defaults:
+    permission: none # take permission of sub route
+  options:
+    description: Send a set of requests to handle (bulk)
+    parameters:
+      stopOnFailure: true|false
+    accept:
+      - application/json
+    body:
+      required: true
+      content-type:
+        - application/json
+
+system_history_list:
+  path: api/history/{resource_name}/{resource_id}
+  controller: Ox\Mediboard\System\Controllers\CHistoryController::list
+  methods: GET
+  defaults:
+    permission: admin
+  requirements:
+    resource_name: '\w+'
+    resource_id: '\d+'
+  options:
+    description: List resource history
+    accept:
+      - application/json
+
+system_history_show:
+  path: api/history/{resource_name}/{resource_id}/{history_id}
+  controller: Ox\Mediboard\System\Controllers\CHistoryController::show
+  methods: GET
+  defaults:
+    permission: admin
+  requirements:
+    resource_name: '\w+'
+    resource_id: '\d+'
+    history_id: '\d+'
+  options:
+    description: Show  resource history
+    parameters:
+      loadResource: true|false
+    accept:
+      - application/json
+
+system_modules:
+  path: api/modules/{mod_name}
+  controller: Ox\Mediboard\System\Controllers\CSystemController::showModule
+  methods: GET
+  defaults:
+    permission: none
+  requirements:
+    mod_name: '\w+'
+  options:
+    description: Show module informations
+    accept:
+      - application/json
+
+system_locales:
+  path: api/locales/{language}/{mod_name}
+  controller: Ox\Mediboard\System\Controllers\CLocalesController::listLocales
+  methods: GET
+  defaults:
+    permission: none
+  requirements:
+    language: fr|en|it|de|fr-be|nl-be
+    mod_name: '\w+'
+  options:
+    description: List locales by module
+    accept:
+      - application/json
+    parameters:
+      search: '\w+'
+      search_mode: starts_with|ends_with|contains|equal
+      search_in: key|value
+
+system_preferences:
+  path: api/preferences/{mod_name}
+  controller: Ox\Mediboard\System\Controllers\CPreferencesController::listPreferences
+  methods: GET
+  defaults:
+    permission: none
+  requirements:
+    mod_name: '\w+'
+  options:
+    description: List default preferences for module
+    accept:
+      - application/json
+    parameters:
+      search: '\w+'
+
+system_user_preferences:
+  path: api/preferences/{mod_name}/{user_id}
+  controller: Ox\Mediboard\System\Controllers\CPreferencesController::listUserPreferences
+  methods: GET
+  defaults:
+    permission: read
+  requirements:
+    user_id: '\d+'
+    mod_name: '\w+'
+  options:
+    description: List user preferences for module
+    accept:
+      - application/json
+    parameters:
+      search: '\w+'
+
+system_profile_preferences:
+  path: api/preferences/{mod_name}/{profile_name}
+  controller: Ox\Mediboard\System\Controllers\CPreferencesController::listProfilePreferences
+  methods: GET
+  defaults:
+    permission: read
+  requirements:
+    profile_name: '\w+'
+    mod_name: '\w+'
+  options:
+    description: List default preferences for module for the user
+    accept:
+      - application/json
+    parameters:
+      search: '\w+'
+
+system_configs_instance:
+  path: api/configurations/{mod_name}
+  controller: Ox\Mediboard\System\Controllers\CConfigurationController::listConfigurations
+  methods: GET
+  defaults:
+    permission: none
+  requirements:
+    mod_name: '\w+'
+  options:
+    description: List all configurations configurations for a module
+    accept:
+      - application/json
+    parameters:
+      search: '\w+'
+
+system_api_status:
+  path: api/status
+  controller: Ox\Mediboard\System\Controllers\CSystemController::status
+  methods: GET
+  defaults:
+    permission: none
+    security: [ ]
+  options:
+    description: Api status
+    accept:
+      - application/json

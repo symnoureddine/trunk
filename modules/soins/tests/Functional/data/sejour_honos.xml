@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2016-09-02 15:53:15" root="CSejour-2230">
+  <object class="CSejour" id="CSejour-2230" group_id="CGroups-13" patient_id="CPatient-0">
+    <field name="type">comp</field>
+    <field name="entree_prevue">now -5 days</field>
+    <field name="sortie_prevue">now +1 days</field>
+    <field name="praticien_id">selenium</field>
+    <field name="group_id">1</field>
+  </object>
+  <object class="CPatient" id="CPatient-0">
+    <field name="nom">PATIENTLASTNAME</field>
+    <field name="prenom">Patientfirstname</field>
+    <field name="naissance">1999-12-12</field>
+    <field name="sexe">f</field>
+  </object>
+  <object class="CGroups" id="CGroups-13">
+  </object>
+</mediboard-export>

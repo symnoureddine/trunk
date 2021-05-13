@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <style type="text/css">
+      body, table {
+        font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;
+      }
+    </style>
+    <script src="../../../../../lib/scriptaculous/lib/prototype.js"></script>
+    <script>
+      var valueMode = window.parent.parent.fields.spanClass == "value";
+      var fields = window.parent.parent.fields.options;
+      var CKEDITOR = window.parent.CKEDITOR;
+
+      // Au chargement, on initialise la liste déroulante avec les sections
+      window.onload = function () {
+        var section = $("section");
+        $H(fields).each(function(field) {
+          section.insert("<option value='" + field[0] + "'>"+ field[0] + "</option>");
+        });
+
+        section.selectedIndex = -1;
+
+        var searchinput = $("searchinput");
+        searchinput.focus();
+        searchinput.select();
+        searchinput.observe("keyup", search.bindAsEventListener(searchinput));
+
+        $("search_field").innerHTML   = window.parent.$T("CCompteRendu-action-Search a field");
+        $("choose_item").innerHTML    = window.parent.$T("CCompteRendu-action-Choose an item");
+        $("choose_subitem").innerHTML = window.parent.$T("CCompteRendu-action-Choose a sub-item");
+      };
+
+      function reloadItem(section) {
+        var oItem = $("item").update();
+
+        // Rien à faire si la section est vide
+        if (section == '') return;
+        // On vide la section des sous-items
+        reloadSubItem('');
+
+        var items = fields[section];
+        $H(items).each(function(item) {
+          var vw_item = item[0];
+          if (Object.isUndefined(item[1].field)) {
+            vw_item += " &gt;";
+          }
+          else {
+            vw_item = vw_item.split(" - ")[1];
+          }
+          oItem.insert("<option value=\"" + item[0] + "\">" + vw_item + "</option>");
+        });
+        oItem.selectedIndex = -1;
+        oItem.scrollTop = 0;
+      }
+
+      function reloadSubItem(section, item) {
+        var oSubItem = $("subitem").update();
+
+        // Rien à faire si l'item est vide
+        if (item == null) return;
+
+        subItems = fields[section][item];
+
+        if (!Object.isUndefined(subItems.field)) return;
+
+        // Sinon insertion des sous-items
+        $H(subItems).each(function (sous_item) {
+          var sub_item = sous_item[0];
+          oSubItem.insert("<option value=\"" + sub_item + "\">" + sub_item + "</option>");
+        });
+        oSubItem.selectedIndex = -1;
+        oSubItem.scrollTop = 0;
+      }
+
+      function insertItem(section, item) {
+        // Si le champ existe, alors on l'insère
+        if (fields[section][item] != null)
+          insertHTML(valueMode ? fields[section][item].valueHTML : fields[section][item].fieldHTML);
+      }
+
+      function insertSubItem(section, item, subitem){
+        if (fields[section][item][subitem] != null)
+          insertHTML(valueMode ? fields[section][item][subitem].valueHTML : fields[section][item][subitem].fieldHTML);
+      }
+
+      function insertHTML(string) {
+        var editor = CKEDITOR.instances.htmlarea;
+        if (valueMode) {
+          var sHtml = "<span class='field'>" + string + "</span>&nbsp;";
+        }
+        else {
+          var className = "field";
+          if (string.match(/Meta Donn&eacute;es/)) {
+            className = 'metadata';
+          }
+          var sHtml = "<span class='" + className + "' contenteditable='false'>" + string + "</span>";
+        }
+        editor.focus();
+        var elt = CKEDITOR.dom.element.createFromHtml(sHtml, editor.document);
+        editor.insertElement(elt);
+        editor.insertText(" ");
+        CKEDITOR.dialog.getCurrent().hide();
+        return true;
+      }
+
+      function eventKey(e) {
+        return (window.event && (window.event.keyCode || window.event.which)) || e.which || e.keyCode || false;
+      }
+
+      var empty = true;
+      function search(event) {
+        if (this.value.length == 1) {
+          return;
+        }
+        if (this.value == "" && !empty) {
+          empty = true;
+          $("classic").toggle();
+          $("search").toggle();
+        }
+        else if (this.value != "") {
+          searchWord.curry(event).bind(this).delay(0.3);
+        }
+      }
+
+      function searchWord(event) {
+        if (empty) {
+          empty = false;
+          $("classic").toggle();
+          $("search").toggle();
+        }
+
+        var resultsearch = $("resultsearch");
+
+        var keyCode = eventKey(event);
+        var length = resultsearch.options.length;
+
+        switch (keyCode) {
+          case 38: // Up
+            if (resultsearch.selectedIndex == -1 || resultsearch.selectedIndex == 0) {
+              resultsearch.selectedIndex = length - 1;
+            }
+            else {
+              resultsearch.selectedIndex = (resultsearch.selectedIndex - 1) % length;
+            }
+            Event.stop(event);
+            return;
+
+          case 40: // Down
+            resultsearch.selectedIndex = (resultsearch.selectedIndex + 1) % length;
+            Event.stop(event);
+            return;
+
+          case 13:
+            if (resultsearch.selectedIndex > -1) {
+              insertHTML(resultsearch.value);
+            }
+            Event.stop(event);
+            return;
+        }
+
+        // Recherche
+        resultsearch.update();
+
+        var value_lowercase = this.value.toLowerCase();
+
+        for (var section in fields) {
+          var items = fields[section];
+          $H(items).each((function (item) {
+            // Si l'item contient des sous-items
+            if (Object.isUndefined(item[1].field)) {
+              $H(item[1]).each((function (_subItem) {
+                if (_subItem[0].toString().toLowerCase().indexOf(value_lowercase) != -1) {
+                  resultsearch.insert(new Element('option', {value: valueMode ? _subItem[1].valueHTML : _subItem[1].fieldHTML}).update(_subItem[1].field));
+                }
+              }).bind(this));
+            }
+            else {
+              if (item[1].field.toLowerCase().indexOf(value_lowercase) != -1) {
+                resultsearch.insert(new Element('option', {value: valueMode ? item[1].valueHTML : item[1].fieldHTML}).update(item[1].field));
+              }
+            }
+          }).bind(this));
+        }
+        resultsearch.selectedIndex = -1;
+      }
+    </script>
+
+  </head>
+  <body>
+  <span id="search_field"></span>
+     : <input type="text" id="searchinput" autofocus />
+    <table>
+      <tr id="classic">
+        <td>
+          <select id="section" onchange="reloadItem(this.value)" size="10" style="width: 180px; height: 270px;">
+          </select>
+        </td>
+        <td>
+          <select id="item" onchange="reloadSubItem($('section').value, this.value);" ondblclick="insertItem($('section').value,this.value);" size="10" style="width: 270px; height: 270px;">
+            <option id="choose_item" value=""> </option>
+          </select>
+        </td>
+        <td>
+          <select id="subitem" size="10" style="width: 270px; height: 270px;" ondblclick="insertSubItem($('section').value, $('item').value, this.value);">
+            <option id="choose_subitem" value=""> </option>
+          </select>
+        </td>  
+      </tr>
+      <tr id="search" style="display: none;">
+        <td>
+          <select id="resultsearch" size="10" style="width: 750px; height: 270px;" ondblclick="insertHTML(this.value)">
+          </select>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

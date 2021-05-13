@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2017-07-12 12:11:35" root="CSejour-1">
+  <object class="CGroups" id="CGroups-1"></object>
+  <object class="CSalle" id="CSalle-1">
+    <field name="nom">Salle 1</field>
+  </object>
+
+  <object class="CFunctions" id="CFunctions-1" group_id="CGroups-1">
+    <field name="type">cabinet</field>
+    <field name="text">Cabinet Cotation</field>
+    <field name="color">FFFFFF</field>
+  </object>
+
+  <object class="CUser" id="CUser-1">
+    <field name="user_username">cotationchir</field>
+    <field name="user_first_name">CotationC</field>
+    <field name="user_last_name">CHIR</field>
+    <field name="user_type">3</field>
+  </object>
+
+  <object class="CMediusers" id="CMediusers-1" user_id="CUser-1" function_id="CFunctions-1">
+    <field name="spec_cpam_id">1</field>
+    <field name="secteur">1</field>
+  </object>
+
+  <object class="CUser" id="CUser-2">
+    <field name="user_username">cotationanesth</field>
+    <field name="user_first_name">CotationA</field>
+    <field name="user_last_name">ANESTH</field>
+    <field name="user_type">4</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-2" user_id="CUser-2" function_id="CFunctions-1">
+    <field name="spec_cpam_id">2</field>
+    <field name="secteur">1</field>
+  </object>
+
+  <!-- Intervention codée par le chir et l'anesth, ne doit pas apparaître -->
+  <object class="CPatient" id="CPatient-1">
+    <field name="nom">FOO</field>
+    <field name="prenom">BAR</field>
+    <field name="naissance">1987-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+  </object>
+  <object class="CSejour" id="CSejour-1" patient_id="CPatient-1" praticien_id="CMediusers-1" group_id="CGroups-1">
+    <field name="type">ambu</field>
+    <field name="entree_prevue">now 10:00:00</field>
+    <field name="sortie_prevue">now +10 days</field>
+  </object>
+  <object class="COperation" id="COperation-1" sejour_id="CSejour-1" chir_id="CMediusers-1" salle_id="CSalle-1" anesth_id="CMediusers-2">
+    <field name="date">now</field>
+    <field name="libelle">Bossectomie</field>
+    <field name="cote">total</field>
+    <field name="temp_operation">01:00:00</field>
+    <field name="time_operation">12:00:00</field>
+    <field name="duree_preop">00:15:00</field>
+    <field name="codes_ccam">NFEP002</field>
+  </object>
+  <object class="CCodageCCAM" id="CCodageCCAM-1" codable_id="COperation-1" praticien_id="CMediusers-1">
+    <field name="association_rule">G1</field>
+    <field name="association_mode">auto</field>
+    <field name="codable_class">COperation</field>
+    <field name="locked">0</field>
+    <field name="activite_anesth">0</field>
+    <field name="date">now</field>
+  </object>
+  <object class="CActeCCAM" id="CActeCCAM-1" object_id="COperation-1" executant_id="CMediusers-1">
+    <field name="code_acte">NFEP002</field>
+    <field name="code_activite">1</field>
+    <field name="code_phase">0</field>
+    <field name="rembourse">1</field>
+    <field name="ald">0</field>
+    <field name="montant_base">104.93</field>
+    <field name="execution">now 12:00:00</field>
+    <field name="object_class">COperation</field>
+  </object>
+  <object class="CCodageCCAM" id="CCodageCCAM-2" codable_id="COperation-1" praticien_id="CMediusers-2">
+    <field name="association_rule">G1</field>
+    <field name="association_mode">auto</field>
+    <field name="codable_class">COperation</field>
+    <field name="locked">0</field>
+    <field name="activite_anesth">1</field>
+    <field name="date">now</field>
+  </object>
+  <object class="CActeCCAM" id="CActeCCAM-2" object_id="COperation-1" executant_id="CMediusers-2">
+    <field name="code_acte">NFEP002</field>
+    <field name="code_activite">4</field>
+    <field name="code_phase">0</field>
+    <field name="rembourse">1</field>
+    <field name="ald">0</field>
+    <field name="montant_base">61.22</field>
+    <field name="execution">now 12:00:00</field>
+    <field name="object_class">COperation</field>
+  </object>
+
+  <!-- Intervention codée par le chir et pas par l'anesth, doit apparaître pour l'anesth -->
+  <object class="CPatient" id="CPatient-2">
+    <field name="nom">BOO</field>
+    <field name="prenom">FAR</field>
+    <field name="naissance">1987-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+  </object>
+  <object class="CSejour" id="CSejour-2" patient_id="CPatient-2" praticien_id="CMediusers-1" group_id="CGroups-1">
+    <field name="type">ambu</field>
+    <field name="entree_prevue">now 10:00:00</field>
+    <field name="sortie_prevue">now +10 days</field>
+  </object>
+  <object class="COperation" id="COperation-2" sejour_id="CSejour-2" chir_id="CMediusers-1" salle_id="CSalle-1" anesth_id="CMediusers-2">
+    <field name="date">now</field>
+    <field name="libelle">Bossectomie</field>
+    <field name="cote">total</field>
+    <field name="temp_operation">01:00:00</field>
+    <field name="time_operation">13:00:00</field>
+    <field name="duree_preop">00:15:00</field>
+    <field name="codes_ccam">AHPC001</field>
+  </object>
+  <object class="CCodageCCAM" id="CCodageCCAM-3" codable_id="COperation-2" praticien_id="CMediusers-1">
+    <field name="association_rule">G1</field>
+    <field name="association_mode">auto</field>
+    <field name="codable_class">COperation</field>
+    <field name="locked">0</field>
+    <field name="activite_anesth">0</field>
+    <field name="date">now</field>
+  </object>
+  <object class="CActeCCAM" id="CActeCCAM-3" object_id="COperation-2" executant_id="CMediusers-1">
+    <field name="code_acte">AHPC001</field>
+    <field name="code_activite">1</field>
+    <field name="code_phase">0</field>
+    <field name="rembourse">1</field>
+    <field name="ald">0</field>
+    <field name="montant_base">113.44</field>
+    <field name="execution">now 13:00:00</field>
+    <field name="object_class">COperation</field>
+  </object>
+  <object class="CCodageCCAM" id="CCodageCCAM-4" codable_id="COperation-2" praticien_id="CMediusers-2">
+    <field name="association_mode">auto</field>
+    <field name="codable_class">COperation</field>
+    <field name="locked">0</field>
+    <field name="activite_anesth">1</field>
+    <field name="date">now</field>
+  </object>
+
+  <!-- Intervention codée par l'anesth et pas par le chir, doit pas apparaître uniquement pour le chir -->
+  <object class="CPatient" id="CPatient-3">
+    <field name="nom">OOF</field>
+    <field name="prenom">RAB</field>
+    <field name="naissance">1987-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+  </object>
+  <object class="CSejour" id="CSejour-3" patient_id="CPatient-3" praticien_id="CMediusers-1" group_id="CGroups-1">
+    <field name="type">ambu</field>
+    <field name="entree_prevue">now 10:00:00</field>
+    <field name="sortie_prevue">now +10 days</field>
+  </object>
+  <object class="COperation" id="COperation-3" sejour_id="CSejour-3" chir_id="CMediusers-1" salle_id="CSalle-1" anesth_id="CMediusers-2">
+    <field name="date">now</field>
+    <field name="libelle">Bossectomie</field>
+    <field name="cote">total</field>
+    <field name="temp_operation">01:00:00</field>
+    <field name="time_operation">14:00:00</field>
+    <field name="duree_preop">00:15:00</field>
+    <field name="codes_ccam">QZMA004</field>
+  </object>
+  <object class="CCodageCCAM" id="CCodageCCAM-5" codable_id="COperation-3" praticien_id="CMediusers-1">
+    <field name="association_mode">auto</field>
+    <field name="codable_class">COperation</field>
+    <field name="locked">0</field>
+    <field name="activite_anesth">0</field>
+    <field name="date">now</field>
+  </object>
+  <object class="CCodageCCAM" id="CCodageCCAM-6" codable_id="COperation-3" praticien_id="CMediusers-2">
+    <field name="association_rule">G1</field>
+    <field name="association_mode">auto</field>
+    <field name="codable_class">COperation</field>
+    <field name="locked">0</field>
+    <field name="activite_anesth">1</field>
+    <field name="date">now</field>
+  </object>
+  <object class="CActeCCAM" id="CActeCCAM-4" object_id="COperation-3" executant_id="CMediusers-2">
+    <field name="code_acte">QZMA004</field>
+    <field name="code_activite">4</field>
+    <field name="code_phase">0</field>
+    <field name="rembourse">1</field>
+    <field name="ald">0</field>
+    <field name="montant_base">126.46</field>
+    <field name="execution">now 12:00:00</field>
+    <field name="object_class">COperation</field>
+  </object>
+
+  <!-- Intervention codée ni par le chir, ni par l'anesth, doit apparaître pour les deux -->
+  <object class="CPatient" id="CPatient-4">
+    <field name="nom">DOO</field>
+    <field name="prenom">DAR</field>
+    <field name="naissance">1987-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+  </object>
+  <object class="CSejour" id="CSejour-4" patient_id="CPatient-4" praticien_id="CMediusers-1" group_id="CGroups-1">
+    <field name="type">ambu</field>
+    <field name="entree_prevue">now 10:00:00</field>
+    <field name="sortie_prevue">now +10 days</field>
+  </object>
+  <object class="COperation" id="COperation-4" sejour_id="CSejour-4" chir_id="CMediusers-1" salle_id="CSalle-1" anesth_id="CMediusers-2">
+    <field name="date">now</field>
+    <field name="libelle">Bossectomie</field>
+    <field name="cote">total</field>
+    <field name="temp_operation">01:00:00</field>
+    <field name="time_operation">15:00:00</field>
+    <field name="duree_preop">00:15:00</field>
+    <field name="codes_ccam">MJCA012</field>
+  </object>
+  <object class="CCodageCCAM" id="CCodageCCAM-7" codable_id="COperation-4" praticien_id="CMediusers-1">
+    <field name="association_mode">auto</field>
+    <field name="codable_class">COperation</field>
+    <field name="locked">0</field>
+    <field name="activite_anesth">0</field>
+    <field name="date">now</field>
+  </object>
+  <object class="CCodageCCAM" id="CCodageCCAM-8" codable_id="COperation-4" praticien_id="CMediusers-2">
+    <field name="association_mode">auto</field>
+    <field name="codable_class">COperation</field>
+    <field name="locked">0</field>
+    <field name="activite_anesth">1</field>
+    <field name="date">now</field>
+  </object>
+</mediboard-export>

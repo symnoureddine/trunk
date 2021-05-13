@@ -1,0 +1,41 @@
+//
+// @package Mediboard\Style\Mediboard
+// @author  SAS OpenXtrem <dev@openxtrem.com>
+// @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+// @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+//
+
+$menu-compact-width: (3*96px)+(10*$space);
+$menu-extended-width: (16+$menu-compact-width);
+$menu-compact-width-tamm: (6*96px)+(10*$space);
+$menu-extended-width-tamm: 16+$menu-compact-width-tamm;
+
+@mixin nav-item() {
+  > span {
+    @include black-emphasis($opacity-high-emphasis-black);
+  }
+}
+
+.nav-modules {
+  @include shadow8();
+  background: $elevation-8;
+
+  > .nav-modules-plus {
+    border-top: 1px solid alpha($black, $opacity-very-low-black);
+    @include black-emphasis($opacity-low-black);
+  }
+
+  > .nav-modules-content {
+    > .nav-module-element {
+      > .nav-module-element-content {
+        > div.img-poc {
+          @include nav-item();
+        }
+      }
+
+      .nav-module-plus {
+        background: $elevation-16;
+      }
+    }
+  }
+}

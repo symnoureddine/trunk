@@ -1,0 +1,11 @@
+cabinet_update_consultation:
+  path: api/cabinet/consultations/{consultation_id}
+  controller: Ox\Mediboard\Cabinet\Controllers\CConsultationController::updateConsultation
+  methods: PUT
+  requirements:
+    consultation_id: '\d+'
+  defaults:
+    permission: edit
+    security: [ token ]
+  options:
+    description: Update CConsultation

@@ -1,0 +1,36 @@
+@import "@system/Utils";
+
+.PatientSmallInfo {
+  &-actions {
+    border-top: 1px solid $grey-100;
+  }
+
+  &-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  &-icon {
+    width: 58px;
+  }
+
+  &-line {
+    box-sizing: border-box;
+    display: flex;
+    padding: 12px;
+    width: 100%;
+  }
+
+  &-name {
+    @include h6;
+  }
+
+  &-subinfo {
+    @include body2;
+
+    align-items: center;
+    display: flex;
+  }
+
+}

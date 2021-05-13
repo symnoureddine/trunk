@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2017-07-12 12:11:35" root="CSejour-1">
+  <object class="CGroups" id="CGroups-1"></object>
+  <object class="CSalle" id="CSalle-1">
+    <field name="nom">Salle 1</field>
+  </object>
+
+  <object class="CUser" id="CUser-1">
+    <field name="user_username">chirtest</field>
+    <field name="user_first_name">Test</field>
+    <field name="user_last_name">CHIR</field>
+    <field name="user_type">3</field>
+  </object>
+
+  <object class="CMediusers" id="CMediusers-1" user_id="CUser-1" function_id="CFunctions-1">
+    <field name="spec_cpam_id">1</field>
+    <field name="secteur">1</field>
+  </object>
+
+  <object class="CPatient" id="CPatient-1">
+    <field name="nom">TEST</field>
+    <field name="prenom">IGS</field>
+    <field name="naissance">1999-12-12</field>
+  </object>
+
+  <object class="CSejour" id="CSejour-1" patient_id="CPatient-1" praticien_id="CMediusers-1" group_id="CGroups-1">
+    <field name="type">ambu</field>
+    <field name="entree_prevue">now -4 hour</field>
+    <field name="sortie_prevue">now +10 days</field>
+  </object>
+  <object class="COperation" id="COperation-1" sejour_id="CSejour-1" chir_id="CMediusers-1" salle_id="CSalle-1">
+    <field name="date">now</field>
+    <field name="libelle">Test score IGS</field>
+    <field name="cote">total</field>
+    <field name="temp_operation">01:00:00</field>
+    <field name="time_operation">now -2 hour</field>
+    <field name="duree_preop">00:15:00</field>
+    <field name="fin_op">now -1 hour</field>
+  </object>
+  <object class="CConstantesMedicales" id="CConstantesMedicales-1" patient_id="CPatient-1" context_id="CSejour-1" user_id="CMediusers-1">
+    <field name="creation_date">now -1 hour</field>
+    <field name="datetime">now -1 hour</field>
+    <field name="context_class">CSejour</field>
+    <field name="_ta_systole">8</field>
+    <field name="_ta_diastole">12</field>
+    <field name="pouls">95</field>
+    <field name="temperature">38</field>
+    <field name="glasgow">7</field>
+    <field name="diurese">600</field>
+  </object>
+</mediboard-export>

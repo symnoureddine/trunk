@@ -1,0 +1,31 @@
+body {
+  /**
+   * Vuetify's impact on MBD patch
+   */
+  *, ::before, ::after {
+    box-sizing: content-box;
+    -moz-osx-font-smoothing: initial !important;
+  }
+
+  .v-application {
+    *, ::before, ::after {
+      box-sizing: border-box;
+      -moz-osx-font-smoothing: grayscale !important;
+    }
+  }
+
+  /**
+   * V-APP
+   */
+  .main-content > .v-application > .v-application--wrap {
+    height: calc(100vh - 56px);
+    margin-top: -4px;
+  }
+  .v-application--wrap {
+    height: 100%;
+  }
+
+  .v-dialog__content.v-dialog__content--active[style="z-index: 202;"] {
+    z-index: 500 !important;
+  }
+}

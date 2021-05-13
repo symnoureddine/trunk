@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="" root="">
+  <object class="CGroups" id="CGroups-1"></object>
+  <object class="CBlocOperatoire" id="CBlocOperatoire-1" group_id="CGroups-1">
+    <field name="nom">NomBloc</field>
+  </object>
+  <object class="CSalle" id="CSalle-1" bloc_id="CBlocOperatoire-1">
+    <field name="nom">NomSalle</field>
+  </object>
+  <object class="CSalle" id="CSalle-2" bloc_id="CBlocOperatoire-1">
+    <field name="nom">NomSalle2</field>
+  </object>
+</mediboard-export>

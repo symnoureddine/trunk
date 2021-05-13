@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2017-07-12 12:11:35" root="CSejour-1">
+  <object class="CSejour" id="CSejour-1" patient_id="CPatient-1" praticien_id="CMediusers-1" group_id="CGroups-1">
+    <field name="type">ambu</field>
+    <field name="entree_prevue">now 08:00:00</field>
+    <field name="sortie_prevue">now 20:00:00</field>
+  </object>
+  <object class="CPatient" id="CPatient-1">
+    <field name="nom">FOO</field>
+    <field name="prenom">BAR</field>
+    <field name="naissance">1987-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-1" user_id="CUser-1">
+    <field name="spec_cpam_id">41</field>
+    <field name="secteur">2</field>
+    <field name="pratique_tarifaire">optamco</field>
+  </object>
+  <object class="CUser" id="CUser-1">
+    <field name="user_username">CHIRCodage</field>
+    <field name="user_first_name">Codage</field>
+    <field name="user_last_name">CHIR</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-2" user_id="CUser-2">
+    <field name="spec_cpam_id">02</field>
+    <field name="secteur">1</field>
+  </object>
+  <object class="CUser" id="CUser-2">
+    <field name="user_username">AnesthCodage</field>
+    <field name="user_first_name">Codage</field>
+    <field name="user_last_name">ANESTH</field>
+  </object>
+  <object class="CGroups" id="CGroups-1"></object>
+  <object class="COperation" id="COperation-1" sejour_id="CSejour-1" chir_id="CMediusers-1" salle_id="CSalle-1">
+    <field name="date">now</field>
+    <field name="libelle">Bossectomie</field>
+    <field name="cote">total</field>
+    <field name="temp_operation">02:00:00</field>
+    <field name="time_operation">12:00:00</field>
+    <field name="duree_preop">00:15:00</field>
+    <field name="codes_ccam">MJFA015|AFLB004|YYYY001</field>
+  </object>
+  <object class="CBlocOperatoire" id="CBlocOperatoire-1" group_id="CGroups-1">
+    <field name="nom">Bloc Test</field>
+    <field name="checklist_everyday">0</field>
+  </object>
+  <object class="CSalle" id="CSalle-1" bloc_id="CBlocOperatoire-1">
+    <field name="nom">Salle Test</field>
+  </object>
+  <object class="CCodageCCAM" id="CCodageCCAM-1" codable_id="COperation-1" praticien_id="CMediusers-1">
+    <field name="association_rule">G1</field>
+    <field name="association_mode">auto</field>
+    <field name="codable_class">COperation</field>
+    <field name="locked">0</field>
+    <field name="activite_anesth">0</field>
+    <field name="date">now</field>
+  </object>
+  <object class="CCodageCCAM" id="CCodageCCAM-2" codable_id="COperation-1" praticien_id="CMediusers-2">
+    <field name="association_rule">G1</field>
+    <field name="association_mode">auto</field>
+    <field name="codable_class">COperation</field>
+    <field name="locked">1</field>
+    <field name="activite_anesth">1</field>
+    <field name="date">now</field>
+  </object>
+  <object class="CActeCCAM" id="CActeCCAM-1" object_id="COperation-1" executant_id="CMediusers-1">
+    <field name="code_acte">MJFA015</field>
+    <field name="code_activite">1</field>
+    <field name="code_phase">0</field>
+    <field name="rembourse">1</field>
+    <field name="ald">0</field>
+    <field name="montant_base">209.00</field>
+    <field name="execution">now 12:00:00</field>
+    <field name="object_class">COperation</field>
+  </object>
+  <object class="CActeCCAM" id="CActeCCAM-2" object_id="COperation-1" executant_id="CMediusers-1">
+    <field name="code_acte">AFLB004</field>
+    <field name="code_activite">1</field>
+    <field name="code_phase">0</field>
+    <field name="rembourse">1</field>
+    <field name="ald">0</field>
+    <field name="montant_base">104.50</field>
+    <field name="execution">now 12:00:00</field>
+    <field name="object_class">COperation</field>
+  </object>
+  <object class="CActeCCAM" id="CActeCCAM-3" object_id="COperation-1" executant_id="CMediusers-2">
+    <field name="code_acte">MJFA015</field>
+    <field name="code_activite">4</field>
+    <field name="code_phase">0</field>
+    <field name="rembourse">1</field>
+    <field name="ald">0</field>
+    <field name="montant_base">66.35</field>
+    <field name="execution">now 12:00:00</field>
+    <field name="object_class">COperation</field>
+  </object>
+</mediboard-export>

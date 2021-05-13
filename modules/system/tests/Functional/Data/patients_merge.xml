@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2015-11-04 16:01:54" root="CPatient-2230">
+  <object class="CPatient" id="CPatient-1">
+    <field name="nom">BASE</field>
+    <field name="prenom">Patientfirstname</field>
+    <field name="nom_soundex2">PTNT</field>
+    <field name="prenom_soundex2">PTNT</field>
+    <field name="naissance">1999-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+    <field name="tel2">0606060606</field>
+    <field name="tutelle">aucune</field>
+    <field name="situation_famille">S</field>
+    <field name="rang_naissance">1</field>
+    <field name="assure_nom">PATIENTLASTNAME</field>
+    <field name="assure_prenom">Patientfirstname</field>
+    <field name="assure_naissance">1999-12-12</field>
+    <field name="assure_sexe">m</field>
+    <field name="assure_civilite">m</field>
+    <field name="allow_sms_notification">1</field>
+    <field name="allow_sisra_send">0</field>
+  </object>
+  <object class="CPatient" id="CPatient-2">
+    <field name="nom">MERGE</field>
+    <field name="prenom">Patientfirstname</field>
+    <field name="nom_soundex2">PTNT</field>
+    <field name="prenom_soundex2">PTNT</field>
+    <field name="naissance">1999-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+    <field name="tel2">0707070707</field>
+    <field name="tutelle">aucune</field>
+    <field name="situation_famille">S</field>
+    <field name="rang_naissance">1</field>
+    <field name="assure_nom">PATIENTLASTNAME</field>
+    <field name="assure_prenom">Patientfirstname</field>
+    <field name="assure_naissance">1999-12-12</field>
+    <field name="assure_sexe">m</field>
+    <field name="assure_civilite">m</field>
+    <field name="allow_sms_notification">1</field>
+    <field name="allow_sisra_send">0</field>
+  </object>
+</mediboard-export>

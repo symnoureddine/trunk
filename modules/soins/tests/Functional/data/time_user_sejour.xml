@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2018-06-25 11:00:00" root="CTimeUserSejour-2230">
+  <object class="CTimeUserSejour" id="CTimeUserSejour-2230" group_id="CGroups-13">
+    <field name="name">H1</field>
+    <field name="time_debut">10:00:00</field>
+    <field name="time_fin">14:00:00</field>
+  </object>
+  <object class="CGroups" id="CGroups-13"></object>
+</mediboard-export>

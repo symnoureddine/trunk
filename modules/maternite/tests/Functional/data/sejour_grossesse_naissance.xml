@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2018-03-06 15:10:55" root="CSejour-2">
+  <object class="CSejour" id="CSejour-2" patient_id="CPatient-9" praticien_id="CMediusers-141" group_id="CGroups-10"
+          grossesse_id="CGrossesse-202">
+    <field name="type">comp</field>
+    <field name="entree_prevue">now</field>
+    <field name="sortie_prevue">now +4 days</field>
+    <field name="type_pec">O</field>
+  </object>
+  <object class="CPatient" id="CPatient-9">
+    <field name="nom">MOTHERLASTNAME</field>
+    <field name="prenom">Motherfirstname</field>
+    <field name="naissance">1986-09-01</field>
+    <field name="sexe">f</field>
+    <field name="civilite">mme</field>
+  </object>
+  <object class="CGroups" id="CGroups-10"></object>
+  <object class="CPatient" id="CPatient-4">
+    <field name="nom">ENFANT</field>
+    <field name="prenom">Test</field>
+    <field name="naissance">now</field>
+    <field name="sexe">m</field>
+    <field name="civilite">enf</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-141" user_id="CUser-141">
+  </object>
+  <object class="CUser" id="CUser-141">
+    <field name="user_username">CHIRTEST</field>
+    <field name="user_first_name">Test</field>
+    <field name="user_last_name">CHIR</field>
+  </object>
+  <object class="COperation" id="COperation-248163" sejour_id="CSejour-2" chir_id="CMediusers-141">
+    <field name="date">now</field>
+    <field name="libelle">accouchement</field>
+    <field name="cote">bas</field>
+    <field name="temp_operation">01:00:00</field>
+    <field name="time_operation">12:00:00</field>
+    <field name="duree_preop">00:45:00</field>
+  </object>
+  <object class="CGrossesse" id="CGrossesse-202" parturiente_id="CPatient-9">
+    <field name="terme_prevu">now</field>
+    <field name="active">1</field>
+    <field name="multiple">0</field>
+    <field name="allaitement_maternel">0</field>
+    <field name="lieu_accouchement">sur_site</field>
+    <field name="rques">ras</field>
+    <field name="terme_prevu">now</field>
+  </object>
+  <object class="CSejour" id="CSejour-3" patient_id="CPatient-4" praticien_id="CMediusers-141" group_id="CGroups-10">
+    <field name="type">comp</field>
+    <field name="modalite">libre</field>
+    <field name="recuse">-1</field>
+    <field name="entree_prevue">now</field>
+    <field name="sortie_prevue">now +4 days</field>
+    <field name="libelle">Naissance</field>
+    <field name="type_pec">M</field>
+    <field name="pec_ambu">NR</field>
+  </object>
+</mediboard-export>

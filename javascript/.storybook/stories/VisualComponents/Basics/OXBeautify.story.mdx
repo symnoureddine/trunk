@@ -1,0 +1,252 @@
+import { Meta, Story, ArgsTable,  Preview} from '@storybook/addon-docs/blocks'
+import OxBeautify from "@system/OxBeautify"
+import OxVue from "@system/OxVue"
+
+
+<Meta
+  title="Visual Components/Basics/Beautify"
+  component={ OxBeautify }
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+    },
+    controls: {
+      sort: 'alpha'
+    }
+  }}
+  argTypes={
+    {
+      value: {
+        name: 'value',
+        description: 'The value to display.',
+        table: {
+          category: 'Props',
+          type: {
+            summary: 'any',
+            detail: 'Can be string (eventually formatted in date or time), boolean or array',
+          }
+        },
+        control: {
+          type: 'select',
+          options: ["", "Test", '2020-01-01', '10:15:00', true, false, 77],
+          labels: {
+            Test: '(String) => "Test"',
+            '2020-01-01': '(Date) => "2020-01-01"',
+            '10:15:00': '(Time) => "10:15:00"',
+            true: '(Boolean) => true',
+            false: '(Boolean) => false',
+            77: '(Number) => 77'
+          }
+        },
+      },
+      voidLabel: {
+        name: 'void-label',
+        description: 'label to display when `value` is void.',
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: '(' + OxVue.str("OxBeautify-void") + ')'
+          },
+          type: {
+            summary: 'string'
+          }
+        },
+        control: {
+          type: 'text'
+        }
+      }
+    }
+  }
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { OxBeautify },
+  props: Object.keys(argTypes),
+  methods: {},
+  template: '<ox-beautify :value="$props.value" :void-label="$props.voidLabel" />'
+});
+
+# Beautify
+
+`ox-beautify`
+
+Beautify allows to quickly display in a readable format for the users different types of data such as `string`, `boolean`, `number` and `array`.
+
+## Demo
+
+<Story name="Demo">
+  {Template.bind({})}
+</Story>
+
+<ArgsTable story="Demo" />
+
+## String
+
+<Preview mdxSource={`
+  <ox-beautify value="Foo, bar" />
+`}>
+  <Story name="String">
+    {{
+      components: { OxBeautify },
+      template: `<ox-beautify value="Foo, bar" />`
+    }}
+  </Story>
+</Preview>
+
+## Boolean
+
+<Preview mdxSource={`
+<div>
+  <ox-beautify :value=true />
+</div>
+<div>
+  <ox-beautify :value=false />
+</div>
+`}>
+  <Story name="Boolean">
+    {{
+      components: { OxBeautify },
+      template: `
+        <div>
+            <div>
+              <ox-beautify :value=true />
+            </div>
+            <div>
+              <ox-beautify :value=false />
+            </div>
+        </div>
+      `
+    }}
+  </Story>
+</Preview>
+
+## Number
+
+<Preview mdxSource={`
+<div>
+  <ox-beautify :value=77 />
+</div>
+<div>
+  <ox-beautify :value=667.22 />
+</div>
+`}>
+  <Story name="Number">
+    {{
+      components: { OxBeautify },
+      template: `
+        <div>
+            <div>
+              <ox-beautify :value=77 />
+            </div>
+            <div>
+              <ox-beautify :value=667.22 />
+            </div>
+        </div>
+      `
+    }}
+  </Story>
+</Preview>
+
+## Date
+
+<Preview mdxSource={`
+ <div>
+  <ox-beautify value="2021-05-07" />
+</div>
+<div>
+  <ox-beautify value="2021-05-07 10:15:00" />
+</div>
+`}>
+  <Story name="Date">
+    {{
+      components: { OxBeautify },
+      template: `
+        <div>
+            <div>
+              <ox-beautify value="2021-05-07" />
+            </div>
+            <div>
+              <ox-beautify value="2021-05-07 09:15:00" />
+            </div>
+        </div>
+      `
+    }}
+  </Story>
+</Preview>
+
+## Time
+
+<Preview mdxSource={`<ox-beautify value="10:15:00" />`}>
+  <Story name="Time">
+    {{
+      components: { OxBeautify },
+      template: `<ox-beautify value="10:15:00" />`
+    }}
+  </Story>
+</Preview>
+
+## Array
+
+<Preview mdxSource={`
+<div>
+  <ox-beautify :value="['foo', 'bar', 12]" />
+</div>
+<div>
+  <ox-beautify :value="[]" />
+</div>
+`}>
+  <Story name="Array">
+    {{
+      components: { OxBeautify },
+      template: `
+        <div>
+          <div>
+            <ox-beautify :value="['foo', 'bar', 12]" />
+          </div>
+          <div>
+            <ox-beautify :value="[]" />
+          </div>
+        </div>
+      `
+    }}
+  </Story>
+</Preview>
+
+## Void
+
+Void default label can be override with the prop `void-label`.
+
+<Preview mdxSource={`
+ <div>
+  <ox-beautify value="" void-label="foo" />
+</div>
+<div>
+  <ox-beautify void-label="bar"/>
+</div>
+<div>
+  <ox-beautify />
+</div>
+`}>
+  <Story name="Void">
+    {{
+      components: { OxBeautify },
+      template: `
+        <div>
+          <div>
+            <ox-beautify value="" void-label="foo" />
+          </div>
+          <div>
+            <ox-beautify void-label="bar"/>
+          </div>
+          <div>
+            <ox-beautify />
+          </div>
+        </div>
+      `
+    }}
+  </Story>
+</Preview>
+
+
+

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<mediboard-export date="2016-09-02 15:53:15" root="CCompteRendu-1">
+  <object class="CCompteRendu" id="CCompteRendu-1" modele_id="1" cat="">
+    <nom>Mod&#xE8;le</nom>
+    <object_class>CSejour</object_class>
+    <type>body</type>
+    <factory>CWkHtmlToPDFConverter</factory>
+    <language>fr-FR</language>
+    <margin_top>2</margin_top>
+    <margin_bottom>2</margin_bottom>
+    <margin_left>2</margin_left>
+    <margin_right>2</margin_right>
+    <page_height>29.7</page_height>
+    <page_width>21</page_width>
+    <fast_edit>0</fast_edit>
+    <fast_edit_pdf>0</fast_edit_pdf>
+    <_source/>
+    <listes/>
+  </object>
+</mediboard-export>

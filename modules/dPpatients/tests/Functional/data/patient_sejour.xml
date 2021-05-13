@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2017-03-06 15:10:55" root="CPatient-1">
+  <!--Patient du jour-->
+  <object class="CPatient" id="CPatient-1">
+    <field name="nom">WAYNE</field>
+    <field name="prenom">Bruce</field>
+    <field name="nom_soundex2">WA</field>
+    <field name="prenom_soundex2">BR</field>
+    <field name="naissance">1980-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+    <field name="vip">0</field>
+    <field name="tutelle">aucune</field>
+    <field name="situation_famille">S</field>
+    <field name="is_smg">0</field>
+    <field name="medecin_traitant_declare">0</field>
+    <field name="incapable_majeur">0</field>
+    <field name="ATNC">0</field>
+    <field name="cmu">0</field>
+    <field name="ame">0</field>
+    <field name="ald">0</field>
+    <field name="acs">0</field>
+    <field name="acs_type">none</field>
+    <field name="code_exo">0</field>
+    <field name="regime_am">0</field>
+    <field name="qual_beneficiaire">00</field>
+    <field name="rang_naissance">1</field>
+    <field name="assure_nom">WAYNE</field>
+    <field name="assure_prenom">Damian</field>
+    <field name="assure_naissance">1999-12-12</field>
+    <field name="assure_sexe">m</field>
+    <field name="assure_civilite">m</field>
+    <field name="allow_sms_notification">0</field>
+    <field name="allow_sisra_send">0</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-141" user_id="CUser-141">
+  </object>
+  <object class="CUser" id="CUser-141">
+    <field name="user_username">CHIRTEST</field>
+    <field name="user_first_name">Test</field>
+    <field name="user_last_name">CHIR</field>
+  </object>
+  <object class="CFunctions" id="CFunctions-1" group_id="CGroups-10">
+    <field name="type">cabinet</field>
+    <field name="text">Cabinet Anesth</field>
+    <field name="color">FFFFFF</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-1" user_id="CUser-1" function_id="CFunctions-1">
+  </object>
+  <object class="CUser" id="CUser-1">
+    <field name="user_username">ANESTHTEST</field>
+    <field name="user_first_name">Test</field>
+    <field name="user_last_name">ANESTH</field>
+    <field name="user_type">4</field>
+  </object>
+  <object class="CSejour" id="CSejour-1" patient_id="CPatient-1" praticien_id="CMediusers-141" group_id="CGroups-10">
+    <field name="cloture_activite_1">0</field>
+    <field name="cloture_activite_4">0</field>
+    <field name="type">comp</field>
+    <field name="modalite">libre</field>
+    <field name="annule">0</field>
+    <field name="recuse">-1</field>
+    <field name="chambre_seule">0</field>
+    <field name="reanimation">0</field>
+    <field name="UHCD">0</field>
+    <field name="entree_prevue">now -2 days 07:00:00</field>
+    <field name="sortie_prevue">now +5 days 10:00:00</field>
+    <field name="entree">now -2 days 07:00:00</field>
+    <field name="sortie">now +5 days 10:00:00</field>
+    <field name="entree_preparee">0</field>
+    <field name="sortie_preparee">0</field>
+    <field name="entree_modifiee">0</field>
+    <field name="sortie_modifiee">0</field>
+    <field name="DP">A012</field>
+    <field name="septique">0</field>
+    <field name="consult_accomp">nc</field>
+    <field name="hormone_croissance">0</field>
+    <field name="lit_accompagnant">0</field>
+    <field name="isolement">0</field>
+    <field name="television">0</field>
+    <field name="repas_diabete">0</field>
+    <field name="repas_sans_sel">0</field>
+    <field name="repas_sans_residu">0</field>
+    <field name="repas_sans_porc">0</field>
+    <field name="facturable">1</field>
+    <field name="libelle">test sejour</field>
+    <field name="forfait_se">0</field>
+    <field name="forfait_sd">0</field>
+    <field name="ald">0</field>
+    <field name="type_pec">M</field>
+    <field name="handicap">0</field>
+    <field name="sans_dmh">0</field>
+    <field name="hospit_de_jour">0</field>
+    <field name="last_seance">0</field>
+    <field name="pec_ambu">NR</field>
+    <field name="presence_confidentielle">0</field>
+    <field name="RRAC">0</field>
+    <field name="nuit_convenance">0</field>
+    <field name="dmi_prevu">0</field>
+    <field name="facture">0</field>
+  </object>
+  <object class="COperation" id="COperation-1" sejour_id="CSejour-1" chir_id="CMediusers-141">
+    <field name="date">now</field>
+    <field name="libelle">Test interv</field>
+    <field name="cote">total</field>
+    <field name="temp_operation">01:00:00</field>
+    <field name="time_operation">09:00:00</field>
+    <field name="duree_preop">00:30:00</field>
+    <field name="fin_op">now 10:00:00</field>
+  </object>
+  <object class="CConstantesMedicales" id="CConstantesMedicales-1" patient_id="CPatient-1" context_id="CSejour-1"
+          user_id="CMediusers-141">
+    <field name="creation_date">now 01:15:00</field>
+    <field name="datetime">now 01:15:00</field>
+    <field name="context_class">CSejour</field>
+    <field name="_ta_systole">8</field>
+    <field name="_ta_diastole">12</field>
+    <field name="pouls">95</field>
+    <field name="temperature">38</field>
+    <field name="glasgow">7</field>
+    <field name="diurese">600</field>
+  </object>
+  <object class="CGroups" id="CGroups-10"></object>
+  <object class="CDossierMedical" id="CDossierMedical-1" object_id="CSejour-1">
+    <field name="codes_cim">A043</field>
+    <field name="risque_thrombo_patient">NR</field>
+    <field name="risque_MCJ_patient">NR</field>
+    <field name="conduites_addictives">0</field>
+    <field name="risque_thrombo_chirurgie">NR</field>
+    <field name="risque_antibioprophylaxie">NR</field>
+    <field name="risque_prophylaxie">NR</field>
+    <field name="risque_MCJ_chirurgie">NR</field>
+    <field name="groupe_sanguin">?</field>
+    <field name="rhesus">?</field>
+    <field name="groupe_ok">0</field>
+    <field name="object_class">CSejour</field>
+  </object>
+</mediboard-export>

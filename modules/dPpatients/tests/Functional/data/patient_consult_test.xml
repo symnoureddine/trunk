@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2015-11-04 16:01:54" root="CPatient-2230">
+  <object class="CPatient" id="CPatient-2230">
+    <field name="nom">PATIENTLASTNAME</field>
+    <field name="prenom">Patientfirstname</field>
+    <field name="nom_soundex2">PTNT</field>
+    <field name="prenom_soundex2">PTNT</field>
+    <field name="naissance">1999-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+    <field name="vip">0</field>
+    <field name="tutelle">aucune</field>
+    <field name="situation_famille">S</field>
+    <field name="is_smg">0</field>
+    <field name="medecin_traitant_declare">0</field>
+    <field name="incapable_majeur">0</field>
+    <field name="ATNC">0</field>
+    <field name="cmu">0</field>
+    <field name="ame">0</field>
+    <field name="ald">0</field>
+    <field name="acs">0</field>
+    <field name="acs_type">none</field>
+    <field name="code_exo">0</field>
+    <field name="regime_am">0</field>
+    <field name="qual_beneficiaire">00</field>
+    <field name="rang_naissance">1</field>
+    <field name="assure_nom">PATIENTLASTNAME</field>
+    <field name="assure_prenom">Patientfirstname</field>
+    <field name="assure_naissance">1999-12-12</field>
+    <field name="assure_sexe">m</field>
+    <field name="assure_civilite">m</field>
+    <field name="allow_sms_notification">0</field>
+    <field name="allow_sisra_send">0</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-141" user_id="CUser-141">
+  </object>
+  <object class="CUser" id="CUser-141">
+    <field name="user_username">CHIRTEST</field>
+    <field name="user_first_name">Test</field>
+    <field name="user_last_name">CHIR</field>
+  </object>
+  <object class="CConsultation" id="CConsultation-1185539" plageconsult_id="CPlageconsult-168866" patient_id="CPatient-2230">
+    <field name="type">classique</field>
+    <field name="heure">09:30:00</field>
+    <field name="duree">1</field>
+    <field name="secteur1">0</field>
+    <field name="secteur2">0</field>
+    <field name="secteur3">0</field>
+    <field name="du_tva">0</field>
+    <field name="taux_tva">0</field>
+    <field name="chrono">64</field>
+    <field name="annule">0</field>
+    <field name="motif">Rechute de la dernière intervention</field>
+    <field name="premiere">0</field>
+    <field name="derniere">0</field>
+    <field name="adresse">0</field>
+    <field name="valide">0</field>
+    <field name="si_desistement">0</field>
+    <field name="du_patient">0</field>
+    <field name="du_tiers">0</field>
+    <field name="at_sans_arret">0</field>
+    <field name="feuille_at">0</field>
+    <field name="arret_maladie">0</field>
+    <field name="visite_domicile">0</field>
+    <field name="facture">0</field>
+  </object>
+  <object class="CPlageconsult" id="CPlageconsult-168866" chir_id="CMediusers-141">
+    <field name="freq">00:30:00</field>
+    <field name="libelle">automatique</field>
+    <field name="locked">0</field>
+    <field name="remplacant_ok">0</field>
+    <field name="desistee">0</field>
+    <field name="color">ABABAB</field>
+    <field name="pct_retrocession">70</field>
+    <field name="pour_tiers">0</field>
+    <field name="send_notifications">1</field>
+    <field name="date">now</field>
+    <field name="debut">07:00:00</field>
+    <field name="fin">16:00:00</field>
+  </object>
+</mediboard-export>

@@ -1,0 +1,151 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks'
+
+
+<Meta
+  title="Typography"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+    }
+  }}
+/>
+
+# Typographie
+
+Font: **Roboto**
+
+<Typeset
+  fontSizes={["h1"]}
+  sampleText="H1 / Roboto Light"
+  fontWeight="300"
+  style={{fontSize: "96px", letterSpacing: "-1.5px", lineHeight: "112px" }}
+/>
+
+<Typeset
+  fontSizes={["h2"]}
+  sampleText="H2 / Roboto Light"
+  fontWeight="300"
+  style={{fontSize: "60px", letterSpacing: "-0.5px", lineHeight: "70px" }}
+/>
+
+<Typeset
+  fontSizes={["h3"]}
+  sampleText="H3 / Roboto Regular"
+  fontWeight="400"
+  style={{fontSize: "48px", letterSpacing: "0", lineHeight: "56px" }}
+/>
+
+<Typeset
+  fontSizes={["h4"]}
+  sampleText="H4 / Roboto Regular"
+  fontWeight="400"r
+  style={{fontSize: "34px", letterSpacing: "0.25px", lineHeight: "40px" }}
+/>
+
+<Typeset
+  fontSizes={["h5"]}
+  sampleText="H5 / Roboto Regular"
+  fontWeight="400"
+  style={{fontSize: "24px", letterSpacing: "0", lineHeight: "28px" }}
+/>
+
+<Typeset
+  fontSizes={["h6"]}
+  sampleText="H6 / Roboto Medium"
+  fontWeight="500"
+  style={{fontSize: "20px", letterSpacing: "0.15px", lineHeight: "30px" }}
+/>
+
+<Typeset
+  fontSizes={["body1"]}
+  sampleText="Body 1 / Roboto Regular"
+  fontWeight="400"
+  style={{fontSize: "18px", letterSpacing: "0.5px", lineHeight: "28px" }}
+/>
+
+<Typeset
+  fontSizes={["body2"]}
+  sampleText="Body 2 / Roboto Regular"
+  fontWeight="400"
+  style={{fontSize: "14px", letterSpacing: "0.15px", lineHeight: "20px" }}
+/>
+
+<Typeset
+  fontSizes={["subtitle1"]}
+  sampleText="Subtitle 1 / Roboto Regular"
+  fontWeight="400"
+  style={{fontSize: "16px", letterSpacing: "0.15px", lineHeight: "24px" }}
+/>
+
+<Typeset
+  fontSizes={["subtitle2"]}
+  sampleText="Subtitle 2 / Roboto Medium"
+  fontWeight="500"
+  style={{fontSize: "14px", letterSpacing: "0", lineHeight: "24px" }}
+/>
+
+<Typeset
+  fontSizes={["button"]}
+  sampleText="Button / Roboto Regular"
+  fontWeight="500"
+  style={{fontSize: "14px", letterSpacing: "0.75px", lineHeight: "16px" }}
+/>
+
+<Typeset
+  fontSizes={["caption"]}
+  sampleText="Caption / Roboto Regular"
+  fontWeight="400"
+  style={{fontSize: "12px", letterSpacing: "0.4px", lineHeight: "14px" }}
+/>
+
+<Typeset
+  fontSizes={["overline"]}
+  sampleText="OVERLINE / ROBOTO MEDIUM"
+  fontWeight="500"
+  style={{fontSize: "10px", letterSpacing: "1.5px", lineHeight: "16px" }}
+/>
+
+## Emphasis
+
+3 levels of emphasis are available to increase the contrast between important text and secondary or disabled informations.
+
+### Black Emphasis
+
+<div style={{ padding: "8px", fontWeight: "400", fontSize: "14px", letterSpacing: "0.15px", lineHeight: "20px", color: "rgba(0, 0, 0, 0.87)" }}>
+  Black High Emphasis
+</div>
+
+<div style={{ padding: "8px", fontWeight: "400", fontSize: "14px", letterSpacing: "0.15px", lineHeight: "20px", color: "rgba(0, 0, 0, 0.6)" }}>
+  Black Medium Emphasis
+</div>
+
+<div style={{ padding: "8px", fontWeight: "400", fontSize: "14px", letterSpacing: "0.15px", lineHeight: "20px", color: "rgba(0, 0, 0, 0.38)" }}>
+  Black Low Emphasis
+</div>
+
+```scss
+@import black-emphasis(high);
+@import black-emphasis(medium);
+@import black-emphasis(low);
+```
+
+### White Emphasis
+
+<div style={{ padding: "8px", borderRadius: '4px 4px 0 0', backgroundColor: '#283593', fontWeight: "400", fontSize: "14px", letterSpacing: "0.15px", lineHeight: "20px", color: "rgba(255, 255, 255, 1)" }}>
+  White High Emphasis
+</div>
+
+<div style={{ padding: "8px", backgroundColor: '#283593', fontWeight: "400", fontSize: "14px", letterSpacing: "0.15px", lineHeight: "20px", color: "rgba(255, 255, 255, 0.7)" }}>
+  White Medium Emphasis
+</div>
+
+<div style={{ padding: "8px", borderRadius: '0 0 4px 4px', backgroundColor: '#283593', fontWeight: "400", fontSize: "14px", letterSpacing: "0.15px", lineHeight: "20px", color: "rgba(255, 255, 255, 0.5)" }}>
+  White Low Emphasis
+</div>
+
+```scss
+@import white-emphasis(high);
+@import white-emphasis(medium);
+@import white-emphasis(low);
+```

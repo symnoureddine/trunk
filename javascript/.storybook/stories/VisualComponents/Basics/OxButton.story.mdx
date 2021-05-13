@@ -1,0 +1,365 @@
+import { Meta, Story, ArgsTable,  Preview} from '@storybook/addon-docs/blocks';
+import OxButton from '@system/OxButton'
+
+<Meta
+  title="Visual Components/Basics/Button"
+  component={OxButton}
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+    },
+    controls: {
+      sort: 'alpha'
+    }
+  }}
+  argTypes={
+    {
+      dark: { table: { disable: true } },
+      iconButton: { table: { disable: true } },
+      smallPrimaryIconOnly: { table: { disable: true } },
+      label: {
+        name: 'label',
+        description: 'Button\'s label. Set empty string to create an icon-only button.',
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: ''
+          },
+          type: {
+            summary: 'string'
+          }
+        },
+        control: {
+          type: 'text'
+        }
+      },
+      buttonStyle: {
+        name: 'button-style',
+        description: 'Main style of button.',
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: 'secondary'
+          },
+          type: {
+            summary: 'string',
+            detail: ' "primary" | "secondary" | "tertiary" | "tertiary-dark"',
+          }
+        },
+        control: {
+          type: 'radio',
+          options: ['primary', 'secondary', 'tertiary', 'tertiary-dark']
+        }
+      },
+      icon: {
+        name: 'icon',
+        description: 'Icon\'s name associated with the button.',
+        control: {
+          type: 'select',
+          options: ["", "add", "cancel", "check", "refresh", "remove"]
+        },
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: ''
+          },
+          type: {
+            summary: 'string'
+          }
+        }
+      },
+      title: {
+        name: 'title',
+        description: 'Button\'s title display on hover.',
+        control: {
+          type: 'text'
+        },
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: ''
+          },
+          type: {
+            summary: 'string'
+          }
+        }
+      },
+      customClass: {
+        name: 'custom-class',
+        description: 'Additional classes added to the button.',
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: ''
+          },
+          type: {
+            summary: 'string'
+          }
+        },
+        control: {
+          type: 'text'
+        }
+      },
+      iconSide: {
+        name: 'icon-side',
+        description: 'Position of the icon in the button.',
+        control: {
+          type: 'radio',
+          options: ['left', 'right']
+        },
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: 'left'
+          },
+          type: {
+            summary: 'string',
+            detail: '"left" | "right"',
+          }
+        }
+      },
+      small: {
+        title: 'small',
+        description: 'Display the button in small size.',
+        control: {
+          type: 'boolean'
+        },
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: false
+          },
+          type: {
+            summary: 'boolean'
+          }
+        }
+      },
+      depressed: {
+        title: 'depressed',
+        description: 'Removes the button box shadow.',
+        control: {
+          type: 'boolean'
+        },
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: false
+          },
+          type: {
+            summary: 'boolean'
+          }
+        }
+      },
+      disabled: {
+        title: 'disabled',
+        description: 'Display the button in an inactive state.',
+        control: {
+          type: 'boolean'
+        },
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: false
+          },
+          type: {
+            summary: 'boolean'
+          }
+        }
+      },
+      loading: {
+        title: 'loading',
+        description: 'Add a loading effect to the button.',
+        control: {
+          type: 'boolean'
+        },
+        table: {
+          category: 'Props',
+          defaultValue: {
+            summary: false
+          },
+          type: {
+            summary: 'boolean'
+          }
+        }
+      },
+      click: {
+        action: 'click',
+        description: 'Emit `click` event when clicked',
+        table: {
+          category: 'Events'
+        }
+      }
+    }
+  }
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { OxButton },
+  props: Object.keys(argTypes),
+  methods: {},
+  template: '<ox-button ' +
+              ':button-style="$props.buttonStyle" ' +
+              ':custom-class="$props.customClass" ' +
+              ':depressed="$props.depressed" ' +
+              ':disabled="$props.disabled" ' +
+              ':icon="$props.icon" ' +
+              ':icon-side="$props.iconSide" ' +
+              ':label="$props.label" ' +
+              ':loading="$props.loading" ' +
+              ':small="$props.small" ' +
+              ':title="$props.title" />'
+});
+
+# Button
+
+`ox-button`
+
+Buttons allow users to take actions, and make choices, with a single tap.
+Their label must be a simple and explicit action verb.
+
+## Demo
+
+<Story name="Demo" args={{
+  buttonStyle: "primary",
+  label: "Label"
+}}>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable story="Demo" />
+
+## Emphasis
+
+Buttons have multiple emphasis to match the importance of the action associated with them.
+
+### Primary
+
+Primary buttons represent the main action of the page. It is advisable te have only one per page.
+
+<Preview mdxSource={`
+<ox-button
+  button-style="primary"
+  label="Main action"
+/>
+`}>
+  <Story name="Primary">
+    {{
+      components: { OxButton },
+      template: `<ox-button button-style="primary"  label="Main action"/>`
+    }}
+  </Story>
+</Preview>
+
+### Secondary
+
+Secondary buttons represent actions that are complementary to the primary action.
+It is advisable not to have more than 5 or 6 per page.
+
+<Preview mdxSource={`
+<ox-button
+  button-style="secondary"
+  label="Secondary action"
+/>
+`}>
+  <Story name="Secondary">
+    {{
+      components: { OxButton },
+      template: `<ox-button button-style="secondary"  label="Secondary action" />`
+    }}
+  </Story>
+</Preview>
+
+### Tertiary
+
+The tertiary buttons represent all the other actions available on the page.
+
+<Preview mdxSource={`
+<ox-button
+  button-style="tertiary"
+  label="Action"
+/>
+`}>
+  <Story name="Tertiary">
+    {{
+      components: { OxButton },
+      template: `<ox-button button-style="tertiary"  label="Action" />`
+    }}
+  </Story>
+</Preview>
+
+
+## Sizing
+
+<Preview mdxSource={`
+<ox-button
+  button-style="primary"
+  label="Primary small"
+  small
+/>
+<ox-button
+  button-style="secondary"
+  icon="account"
+  label="Account"
+  small
+/>
+<ox-button
+  button-style="tertiary"
+  icon="add"
+  small
+/>
+`}>
+  <Story name="Sizing">
+    {{
+      components: { OxButton },
+      template: `
+        <div>
+         <ox-button button-style="primary" custom-class="mr-2"  label="Primary small" small />
+         <ox-button button-style="secondary" icon="account" label="Account" small />
+         <ox-button button-style="tertiary" custom-class="mr-2" icon="add" small />
+        </div>`
+    }}
+  </Story>
+</Preview>
+
+## Icons
+
+You can create buttons with icons.
+However, be careful to use icons only when necessary. It is better to put only a simple action than an icon which can be ambiguous.
+
+Regarding the icon-only buttons, please always use very explicit icons (printer for printing, plus sign for add, etc).
+
+<Preview mdxSource={`
+<ox-button
+  button-style="primary"
+  icon="add"
+  label="Add object"
+/>
+<ox-button
+  button-style="secondary"
+  icon="add"
+/>
+<ox-button
+  button-style="secondary"
+  icon="refresh"
+  icon-side="right"
+  label="Reload"
+/>
+<ox-button
+  button-style="tertiary"
+  icon="vDots"
+/>
+`}>
+  <Story name="Icons">
+    {{
+      components: { OxButton },
+      template: `
+        <div>
+         <ox-button button-style="primary" custom-class="mr-2" icon="add" label="Add object" />
+         <ox-button button-style="secondary" custom-class="mr-2" icon="add" />
+         <ox-button button-style="secondary" custom-class="mr-2" icon="refresh" icon-side="right" label="Reload" />
+         <ox-button button-style="tertiary" icon="vDots" />
+        </div>`
+    }}
+  </Story>
+</Preview>

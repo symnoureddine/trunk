@@ -1,0 +1,26 @@
+/*
+  @package Mediboard\System
+  @author  SAS OpenXtrem <dev@openxtrem.com>
+  @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+  @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+*/
+
+@import '@system/OxLayoutStyle';
+
+.OxLayoutMain {
+  @include layoutPane;
+
+  &-content {
+    @include layoutPart;
+
+    height: 100%;
+    width: 100%;
+  }
+
+  &-contentContainer {
+    @include layoutContent;
+
+    height: 100%;
+    width: 100%;
+  }
+}

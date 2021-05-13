@@ -1,0 +1,78 @@
+/*
+  @package Mediboard\System
+  @author  SAS OpenXtrem <dev@openxtrem.com>
+  @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+  @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+*/
+
+/**
+ * COLORS
+ * Change error-text color on primary
+ */
+.theme--dark .error--text,
+.theme--dark.error--text {
+  color: #ff8b70 !important;
+  caret-color: #ff8b70 !important;
+  font-weight: bold;
+}
+
+/**
+ * V-INPUT
+ * Fix a lower size for the inputs
+ */
+$text-field-filled-full-width-outlined-slot-min-height: 48px;
+$text-field-filled-margin-top: 15px;
+$text-field-filled-full-width-label-top: 14px;
+$text-field-enclosed-prepend-append-margin-top: 12px;
+$text-field-details-margin-bottom: 0;
+$input-slot-margin-bottom: 4px;
+
+/**
+ * V-SELECT
+ * Fix a lower size for the selects
+ */
+$select-selections-padding-top: 15px;
+
+/**
+ * V-AUTOCOMPLETE
+ * Fix a lower size for the autocompletes
+ */
+$autocomplete-enclosed-input-margin-top: 15px;
+
+/**
+ * V-AUTOCOMPLETE & V-SELECT
+ * No icon rotation on the autocomplete/select focus
+ */
+.v-select.v-select--is-menu-active .v-input__icon--append .v-icon {
+  transform: rotate(0deg) !important;
+}
+
+/**
+ * V-SLIDER
+ * Fix bigger width to slider track and no thumb
+ */
+$slider-track-width: 8px;
+$slider-thumb-size: 8px;
+$slider-track-border-radius: 8px;
+$slider-tick-border-radius: 8px;
+$slider-horizontal-right: 0;
+$slider-horizontal-left: 0;
+
+/**
+ * V-TABS
+ * Vertical tabs slider to right
+ */
+.v-tabs--vertical .v-tabs-slider-wrapper {
+  right: 0 !important;
+  left: unset !important;
+}
+
+
+/**
+ * V-PROGRESS-LINEAR
+ * Buffer z-index behind progress bar
+ */
+.v-progress-linear__buffer {
+  z-index: 0;
+}
+

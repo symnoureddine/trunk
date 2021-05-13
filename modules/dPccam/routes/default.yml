@@ -1,0 +1,13 @@
+ccam_actes:
+  path: /api/ccam/actes
+  controller: Ox\Mediboard\Ccam\Controllers\CCodeCCAMsController::listCodes
+  methods: GET
+  defaults:
+    permission: read
+  options:
+    description: Return a list of codes
+    parameters:
+      code: '\w+'
+      date: '\w+'
+    accept:
+      - application/json

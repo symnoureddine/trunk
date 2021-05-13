@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2015-11-04 16:01:54" root="CPatient-0">
+  <object class="CPatient" id="CPatient-0">
+    <field name="nom">PATIENTLASTNAME</field>
+    <field name="prenom">Patientfirstname</field>
+    <field name="naissance">1999-12-12</field>
+    <field name="sexe">f</field>
+  </object>
+  <object class="CGroups" id="CGroups-1"></object>
+  <object class="CFunctions" id="CFunctions-1" group_id="CGroups-1">
+    <field name="type">cabinet</field>
+    <field name="text">SFCab</field>
+    <field name="color">FFFFFF</field>
+  </object>
+  <object class="CUser" id="CUser-1">
+    <field name="user_username">sagefemme</field>
+    <field name="user_first_name">Femme</field>
+    <field name="user_last_name">SAGE</field>
+    <field name="user_type">16</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-1" user_id="CUser-1" function_id="CFunctions-1">
+    <field name="spec_cpam_id">21</field>
+    <field name="secteur">1</field>
+  </object>
+  <object class="CUser" id="CUser-2">
+    <field name="user_username">kinesitherapeute</field>
+    <field name="user_first_name">Therapeute</field>
+    <field name="user_last_name">KINESI</field>
+    <field name="user_type">15</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-2" user_id="CUser-2" function_id="CFunctions-1">
+    <field name="spec_cpam_id">24</field>
+    <field name="secteur">1</field>
+  </object>
+</mediboard-export>

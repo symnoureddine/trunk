@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2016-01-26 16:58:54" root="CSejour-389">
+  <object class="CSejour" id="CSejour-389" patient_id="CPatient-2982" praticien_id="CMediusers-733" group_id="CGroups-13">
+    <field name="cloture_activite_1">0</field>
+    <field name="cloture_activite_4">0</field>
+    <field name="type">ambu</field>
+    <field name="modalite">libre</field>
+    <field name="annule">0</field>
+    <field name="recuse">0</field>
+    <field name="chambre_seule">0</field>
+    <field name="reanimation">0</field>
+    <field name="UHCD">0</field>
+    <field name="entree_prevue">2015-12-21 10:00:00</field>
+    <field name="sortie_prevue">2015-12-22 18:00:00</field>
+    <field name="entree">2015-12-21 10:00:00</field>
+    <field name="sortie">2015-12-21 18:00:00</field>
+    <field name="entree_preparee">0</field>
+    <field name="sortie_preparee">0</field>
+    <field name="entree_modifiee">0</field>
+    <field name="sortie_modifiee">0</field>
+    <field name="septique">0</field>
+    <field name="consult_accomp">nc</field>
+    <field name="hormone_croissance">0</field>
+    <field name="lit_accompagnant">0</field>
+    <field name="isolement">0</field>
+    <field name="television">0</field>
+    <field name="repas_diabete">0</field>
+    <field name="repas_sans_sel">0</field>
+    <field name="repas_sans_residu">0</field>
+    <field name="repas_sans_porc">0</field>
+    <field name="facturable">1</field>
+    <field name="forfait_se">0</field>
+    <field name="forfait_sd">0</field>
+    <field name="ald">0</field>
+    <field name="type_pec">M</field>
+    <field name="handicap">0</field>
+    <field name="hospit_de_jour">0</field>
+    <field name="facture">0</field>
+    <field name="rques">Base sejour</field>
+  </object>
+  <object class="CSejour" id="CSejour-390" patient_id="CPatient-2982" praticien_id="CMediusers-733" group_id="CGroups-13">
+    <field name="cloture_activite_1">0</field>
+    <field name="cloture_activite_4">0</field>
+    <field name="type">ambu</field>
+    <field name="modalite">libre</field>
+    <field name="annule">0</field>
+    <field name="recuse">0</field>
+    <field name="chambre_seule">0</field>
+    <field name="reanimation">0</field>
+    <field name="UHCD">0</field>
+    <field name="entree_prevue">2015-12-23 11:00:00</field>
+    <field name="sortie_prevue">2015-12-25 19:00:00</field>
+    <field name="entree">2015-12-23 11:00:00</field>
+    <field name="sortie">2015-12-25 19:00:00</field>
+    <field name="entree_preparee">0</field>
+    <field name="sortie_preparee">0</field>
+    <field name="entree_modifiee">0</field>
+    <field name="sortie_modifiee">0</field>
+    <field name="septique">0</field>
+    <field name="consult_accomp">nc</field>
+    <field name="hormone_croissance">0</field>
+    <field name="lit_accompagnant">0</field>
+    <field name="isolement">0</field>
+    <field name="television">0</field>
+    <field name="repas_diabete">0</field>
+    <field name="repas_sans_sel">0</field>
+    <field name="repas_sans_residu">0</field>
+    <field name="repas_sans_porc">0</field>
+    <field name="facturable">1</field>
+    <field name="forfait_se">0</field>
+    <field name="forfait_sd">0</field>
+    <field name="ald">0</field>
+    <field name="type_pec">M</field>
+    <field name="handicap">0</field>
+    <field name="hospit_de_jour">0</field>
+    <field name="facture">0</field>
+    <field name="rques">Merged sejour</field>
+  </object>
+  <object class="CPatient" id="CPatient-2982">
+    <field name="nom">FUSIONSEJOUR</field>
+    <field name="prenom">fusionsejour</field>
+    <field name="naissance">1980-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+    <field name="vip">0</field>
+    <field name="tutelle">aucune</field>
+    <field name="situation_famille">S</field>
+    <field name="is_smg">0</field>
+    <field name="medecin_traitant_declare">0</field>
+    <field name="incapable_majeur">0</field>
+    <field name="ATNC">0</field>
+    <field name="cmu">0</field>
+    <field name="ame">0</field>
+    <field name="ald">0</field>
+    <field name="acs">0</field>
+    <field name="acs_type">none</field>
+    <field name="code_exo">0</field>
+    <field name="regime_am">0</field>
+    <field name="qual_beneficiaire">00</field>
+    <field name="rang_naissance">1</field>
+    <field name="allow_sms_notification">0</field>
+    <field name="allow_sisra_send">0</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-733" user_id="CUser-733"></object>
+  <object class="CUser" id="CUser-733">
+    <field name="user_username">CHIRDERMATO</field>
+    <field name="user_type">3</field>
+    <field name="user_last_name">CHIR</field>
+  </object>
+  <object class="CGroups" id="CGroups-13">
+    <field name="text">Clinique</field>
+  </object>
+</mediboard-export>

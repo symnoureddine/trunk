@@ -1,0 +1,39 @@
+mediuser_mediusers:
+  path: /api/mediuser/mediusers
+  controller: Ox\Mediboard\Mediusers\Controllers\CMediusersController::listMediusers
+  methods: GET
+  defaults:
+    permission: read
+  options:
+    description: Return a list of mediusers
+    parameters:
+      type: prat|anesth
+      name: '\w+'
+    accept:
+      - application/json
+
+mediuser_mediuser:
+  path: /api/mediuser/mediusers/{user_id}
+  controller: Ox\Mediboard\Mediusers\Controllers\CMediusersController::showMediuser
+  methods: GET
+  defaults:
+    permission: read
+  requirements:
+    user_id: '\d+'
+  options:
+    description: Return a mediuser
+    accept:
+      - application/json
+
+mediuser_mediuser_by_rpps:
+  path: /api/mediuser/mediuser_by_rpps/{rpps}
+  controller: Ox\Mediboard\Mediusers\Controllers\CMediusersController::showMediuserByRPPS
+  requirements:
+    rpps: '\w+'
+  methods: GET
+  defaults:
+    permission: read
+  options:
+    description: Return a mediuser by rpps
+    accept:
+      - application/json

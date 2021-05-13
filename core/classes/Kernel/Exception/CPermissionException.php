@@ -1,0 +1,16 @@
+<?php
+/**
+ * @package Mediboard\Core\Kernel
+ * @author  SAS OpenXtrem <dev@openxtrem.com>
+ * @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+ * @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+ */
+
+namespace Ox\Core\Kernel\Exception;
+
+/**
+ * Class CPermissionException
+ */
+class CPermissionException extends CHttpException
+{
+}

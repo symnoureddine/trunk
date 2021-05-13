@@ -1,0 +1,187 @@
+##### Workflow rules #####
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: always
+    - if: '$CI_COMMIT_BRANCH =~ /^release\/20\d{2}_\d{2}$/'
+      when: always
+    - when: never
+
+##### Pipline stages #####
+stages:
+  - build
+  - test
+  - deploy
+
+##### Folders to cache #####
+cache:
+  key: ${CI_PIPELINE_ID}
+  paths:
+    - vendor/
+    - includes/config.php
+    - includes/classmap.php
+    - includes/classref.php
+    - includes/all_routes.yml
+    - includes/legacy_actions.php
+    - includes/documentation.yml
+    - includes/config_dist.php
+    - lib/
+    - tmp/
+
+##### Build #####
+build:
+  stage: build
+  tags:
+    - debian_ovh_ci
+  script:
+    - php -v
+    - pwd
+    - echo $USER
+    - echo ${CI_PIPELINE_ID}
+    - echo ${CI_COMMIT_REF_NAME}
+    - echo ${CI_COMMIT_BRANCH}
+    - echo ${CI_COMMIT_SHA}
+    - echo ${CI_COMMIT_BEFORE_SHA}
+    - echo ${BRANCH_NAME}
+    - mkdir -p tmp
+    - composer validate --no-check-all --strict
+    - composer install --optimize-autoloader
+    - php cli/console.php ci:build-runner --ip_runner "$IP_RUNNER_TF" --ci_project_dir "$CI_PROJECT_DIR" --db_host "$DB_HOST" --db_user "$DB_USER" --db_pass "$DB_PASS" --branch_name "$CI_COMMIT_REF_NAME" --is_gc "$CI_GC" --pipeline_id "$CI_PIPELINE_ID"
+    - php cli/console.php ci:update-database
+
+##### Test #####
+test:phpunit:
+  stage: test
+  retry: 1
+  except:
+    - schedules
+  tags:
+    - debian_ovh_ci
+  script:
+    - vendor/bin/phpunit -c phpunit_ci.xml --testsuite UnitTestSuite --exclude-group schedules --no-coverage
+  artifacts:
+    when: always
+    expire_in: 1 month
+    reports:
+      junit: tmp/junit.xml
+
+##### Test #####
+test:jest:
+  stage: test
+  tags:
+    - debian_ovh_ci
+  before_script:
+    - node -v
+    - npm --cache-min Infinity install --silent
+  script:
+    - npm run test-vue-ci
+  rules:
+    - if: '$RUN_JEST == "true"'
+  artifacts:
+    when: always
+    expire_in: 1 month
+    reports:
+      junit:
+        - junit.xml
+
+test:jest_schedules:
+  stage: test
+  only:
+    - schedules
+  tags:
+    - debian_ovh_ci
+  before_script:
+    - npm --cache-min Infinity install
+  script:
+    - npm run test-vue-coverage "<rootDir>/tmp/jest_coverage"
+  artifacts:
+    reports:
+      junit:
+        - junit.xml
+    paths:
+      - tmp/jest_coverage
+    when: always
+    expire_in: 1 month
+
+test:phpunit_schedules:
+  stage: test
+  only:
+    - schedules
+  tags:
+    - debian_ovh_ci
+  before_script:
+    - mv /etc/php/7.3/cli/conf.d/20-xdebug.ini.dis /etc/php/7.3/cli/conf.d/20-xdebug.ini
+  script:
+    - vendor/bin/phpunit -c phpunit_ci.xml --testsuite UnitTestSuite
+  after_script:
+    - mv /etc/php/7.3/cli/conf.d/20-xdebug.ini /etc/php/7.3/cli/conf.d/20-xdebug.ini.dis
+  artifacts:
+    reports:
+      junit: tmp/junit.xml
+    paths:
+      - tmp/coverage.xml
+      - tmp/html_coverage
+    when: always
+    expire_in: 1 month
+
+test:marquage_ce:
+  stage: test
+  only:
+    - schedules
+  tags:
+    - debian_ovh_ci
+  script:
+    - vendor/bin/phpunit -c phpunit_ci.xml --group marquage_ce --no-coverage --log-junit tmp/junit.xml
+  artifacts:
+    paths:
+      - tmp/junit.xml
+    when: always
+    expire_in: 1 month
+    reports:
+      junit: tmp/junit.xml
+
+test:phplint:
+  stage: test
+  only:
+    - schedules
+  tags:
+    - debian_ovh_ci
+  script:
+    -  vendor/bin/parallel-lint --exclude vendor .
+
+##### DEPLOY #####
+deploy:
+  stage: deploy
+  only:
+    - /^release\/20\d{2}_\d{2}$/
+  except:
+    - schedules
+  tags:
+    - debian_ovh_ci
+  environment:
+    name: $CI_COMMIT_REF_NAME
+  resource_group: $CI_COMMIT_REF_NAME
+  script:
+    - php cli/console.php ci:deploy-release --ssh_deploy "$SSH_DEPLOY" --path_deploy "$PATH_DEPLOY" --branch_name "$CI_COMMIT_REF_NAME" --current_ref "$CI_COMMIT_SHA" --remote "$GIT_MEDIBOARD_REMOTE"
+
+##### Schedules #####
+#schedules:selenium:
+#  stage: schedules
+#  only:
+#    - schedules
+#  tags:
+#    - debian_ovh_ci
+#  script:
+#    - mkdir -p tmp/screenshot
+#    - vendor/bin/phpunit -c phpunit.xml --testsuite SeleniumTestSuite --log-junit tmp/selenium_testsuite_junit.xml
+#  allow_failure: true
+#  artifacts:
+#    paths:
+#      - tmp/selenium_testsuite_junit.xml
+#      - tmp/screenshot
+#    when: always
+#    expire_in: 1 month

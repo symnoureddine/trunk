@@ -1,0 +1,30 @@
+/**
+ * @package Mediboard\SourceCode
+ * @author  SAS OpenXtrem <dev@openxtrem.com>
+ * @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+ * @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+ */
+
+/** DASHBOARD **/
+.dc-chart g.row text {
+  fill: black;
+}
+
+.status_new        { background-color: rgba(189, 206, 250, 0.60) !important; }
+.status_inprogress { background-color: rgba(255, 221, 68, 0.60)  !important; }
+.status_closed     { background-color: rgba(255, 102, 102, 0.60) !important; }
+.status_postponed  { background-color: rgba(85, 85, 85, 0.60) !important;}
+
+/** GITLAB **/
+.gitlab-pipeline-line > .type_ok{
+  background-color: rgba(153,255,153,0.60) !important;
+}
+.gitlab-pipeline-line > .type_error{
+  background-color: rgba(255,153,153,0.80) !important;
+}
+.gitlab-pipeline-line > .type_warning{
+  background-color: rgba(255,255,0,0.20) !important;
+}
+.gitlab-pipeline-line > .type_highlight{
+  background-color: rgba(85,119,204,0.60) !important;
+}

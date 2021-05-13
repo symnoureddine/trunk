@@ -1,0 +1,112 @@
+//
+// @package Mediboard\Style\Mediboard
+// @author  SAS OpenXtrem <dev@openxtrem.com>
+// @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+// @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+//
+
+@mixin nav-large-element-dark {
+  width: 100%;
+  background-color: $elevation-3;
+  padding: 0;
+  transition: box-shadow 0.125s;
+}
+@mixin nav-menu-dark {
+  @include nav-fixed();
+  @include shadow16();
+  @include border-radius();
+  display: none;
+  padding: $space 0;
+}
+
+.nav-header {
+  @include nav-large-element-dark();
+  
+  .nav-title,
+  .nav-title-module {
+    @include black-emphasis($opacity-high-emphasis-black);
+  }
+
+  .nav-menu-icon {
+    @include ripple-effect-dark();
+    @include black-emphasis($opacity-high-emphasis-black);
+  }
+
+  .nav-plus {
+    .nav-plus-icon {
+      @include ripple-effect-dark();
+      @include black-emphasis($opacity-high-emphasis-black);
+    }
+  }
+}
+
+.nav-smoke {
+  background-color: $white;
+}
+
+.nav-shadow,
+.nav-shadow.nav-subtabs {
+  border-bottom: none;
+}
+
+.nav-plus-content,
+.nav-tabs-container,
+.nav-groups-container,
+.nav-module-sub-menu {
+  @include nav-menu-dark();
+
+  > a, > div:not(.me-switch) {
+    @include ripple-effect-dark();
+  }
+}
+
+.nav-groups-container {
+  > a, > div {
+    @include black-emphasis($opacity-high-emphasis-white);
+  }
+}
+
+@mixin nav-plus-counter-dark {
+  position: absolute;
+  color: $black;
+  background: $primary;
+  min-width: 12px;
+  height: 12px;
+  line-height: 12px;
+  padding: 0;
+  margin: 0;
+  right: 3px;
+  bottom: 13px;
+}
+/**
+  Messagerie
+ */
+.nav-plus-mail {
+  > a {
+    .msg-counter {
+      @include nav-plus-counter-dark();
+    }
+  }
+}
+/**
+  Porte documents
+ */
+.nav-plus-porte-documents {
+  > a {
+    > span {
+      > span.msg-counter {
+        @include nav-plus-counter-dark();
+        right: -3px;
+        background-color: $error-color-background;
+      }
+      &.none > i::before {
+        color: $grey-primary;
+      }
+    }
+  }
+}
+
+.messagerie-menu {
+  @include nav-menu-dark();
+  display: block;
+}

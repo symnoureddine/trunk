@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Ox\\Erp\\SourceCode\\": "classes",
+      "Ox\\Erp\\SourceCode\\Tests\\": "tests"
+    }
+  }
+}

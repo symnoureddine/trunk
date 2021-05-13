@@ -1,0 +1,197 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import OxButton from '@system/OxButton'
+import OxNotify from '@system/OxNotify'
+import OxNotifyManagerApi from "@system/OxNotifyManagerApi"
+import OxStoreCore from "@system/OxStoreCore"
+import { NotificationDelay } from "@system/OxNotifyModel"
+
+export const notifyApi = new OxNotifyManagerApi(OxStoreCore)
+
+export const displayInfo = () => {
+  notifyApi.addInfo("Some information")
+}
+
+export const displayWarning = () => {
+  notifyApi.addWarning("Some warning")
+}
+
+export const displayError = () => {
+  notifyApi.addError("Some error")
+}
+
+export const displayInfoWithCallback = () => {
+  notifyApi.addInfo(
+    "Some information with callback",
+    {
+      callback: () => {
+        console.log("Ok button clicked")
+      }
+    }
+  )
+}
+
+export const displayInfoWithDelay = () => {
+  notifyApi.addWarning(
+    "Some warning with delay",
+    {
+      delay: NotificationDelay.short
+    }
+  )
+}
+
+<Meta
+  title="Utility Components/Notify"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+    }
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { OxButton, OxNotify },
+  props: Object.keys(argTypes),
+  methods: {},
+  data() {
+    return {
+      notifyApi: notifyApi
+    }
+  },
+  template: '<div><ox-button label="Show" @click="clickFunction"/><ox-notify :notification-manager="notifyApi"/></div>'
+});
+
+
+# Notify
+
+Methods that provide to the `OxVue` components to display notifications at the top level.
+
+## Demo
+
+<Preview mdxSource={`
+  (...)
+  private someFunction (): void {
+      this.notifyInfo("Some information")
+  }
+  (...)
+`}>
+  <Story name="Demo" args={{ clickFunction: displayInfo }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+## Types
+Three types of notifications are availables.
+
+### Information
+The `notifyInfo` method can be used to display informations.
+
+<Preview mdxSource={`
+  (...)
+  private someFunction (): void {
+      this.notifyInfo("Some information")
+  }
+  (...)
+`}>
+  <Story name="Information" args={{ clickFunction: displayInfo }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+### Warning
+The `notifyWaning` method can be used to display non-blocking errors.
+
+<Preview mdxSource={`
+  (...)
+  private someFunction (): void {
+      this.displayWarning("Some warning")
+  }
+  (...)
+`}>
+  <Story name="Warning" args={{ clickFunction: displayWarning }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+### Error
+The `notifyError` method can be used to display blocking errors.
+
+<Preview mdxSource={`
+  (...)
+  private someFunction (): void {
+      this.displayError("Some error")
+  }
+  (...)
+`}>
+  <Story name="Error" args={{ clickFunction: displayError }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+## Delay
+If the `delay` option is set, the notification stay displayed few seconds. Three delays are availables : `NotificationDelay.short`, `NotificationDelay.medium` and `NotificationDelay.long`.
+
+<Preview mdxSource={`
+  import { NotificationDelay } from "@system/OxNotifyModel"
+  (...)
+  private someFunction (): void {
+      this.displayError(
+          "Some warning with delay",
+          {
+              delay: NotificationDelay.short
+          }
+      )
+  }
+  (...)
+`}>
+  <Story name="Delay" args={{ clickFunction: displayInfoWithDelay }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+## Callback
+The `callback` option can be used to execute a script when a notification is validated (when the "ok" button is clicked OR when after a delay if a delay is used).
+
+<Preview mdxSource={`
+  (...)
+  private someFunction (): void {
+      this.displayError(
+        "Some information with callback",
+        {
+            callback: () => {
+                console.log("Ok button clicked")
+            }
+        }
+      )
+  }
+  (...)
+`}>
+  <Story name="Callback" args={{ clickFunction: displayInfoWithCallback }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+## Outside an OxVue component
+Notifications can be used outside `OxVue` components using `OxNotifyManagerApi` and `OxStoreCore` :
+
+<Preview mdxSource={`
+  (...)
+  import OxNotifyManagerApi from "@system/OxNotifyManagerApi"
+  import OxStoreCore from "@system/OxStoreCore"
+  (...)
+  private someFunction (): void {
+      (new OxNotifyManagerApi(OxStoreCore)).addInfo("Some information")
+  }
+  (...)
+`}>
+  <Story name="Outside OxVue" args={{ clickFunction: displayInfo }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>

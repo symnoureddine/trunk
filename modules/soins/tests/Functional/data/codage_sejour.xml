@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2017-07-12 12:11:35" root="CSejour-2">
+  <object class="CSejour" id="CSejour-2" patient_id="CPatient-2" praticien_id="CMediusers-12" group_id="CGroups-1">
+    <field name="type">ambu</field>
+    <field name="entree_prevue">now -30 minutes</field>
+    <field name="sortie_prevue">now +1 hours</field>
+    <field name="codes_ccam">BELB001|BFGA004</field>
+  </object>
+  <object class="CPatient" id="CPatient-2">
+    <field name="nom">FOO</field>
+    <field name="prenom">BAR</field>
+    <field name="naissance">1987-12-12</field>
+    <field name="sexe">m</field>
+    <field name="civilite">m</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-12" user_id="CUser-12">
+    <field name="spec_cpam_id">41</field>
+    <field name="secteur">2</field>
+    <field name="pratique_tarifaire">optamco</field>
+  </object>
+  <object class="CUser" id="CUser-12">
+    <field name="user_username">CHIRCodage</field>
+    <field name="user_first_name">Codage</field>
+    <field name="user_last_name">CHIR</field>
+  </object>
+  <object class="CGroups" id="CGroups-1"></object>
+  <object class="COperation" id="COperation-2" sejour_id="CSejour-2" chir_id="CMediusers-12" salle_id="CSalle-1">
+    <field name="date">now</field>
+    <field name="libelle">Cataracte</field>
+    <field name="cote">total</field>
+    <field name="temp_operation">02:00:00</field>
+    <field name="time_operation">12:00:00</field>
+    <field name="duree_preop">00:15:00</field>
+  </object>
+  <object class="CBlocOperatoire" id="CBlocOperatoire-1" group_id="CGroups-1">
+    <field name="nom">Bloc Test</field>
+    <field name="checklist_everyday">0</field>
+  </object>
+  <object class="CSalle" id="CSalle-1" bloc_id="CBlocOperatoire-1">
+    <field name="nom">Salle Test</field>
+  </object>
+</mediboard-export>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" bootstrap="tests/bootstrap.php"
+         backupGlobals="false" backupStaticAttributes="false" cacheResult="true"
+         cacheResultFile="tmp/phpunit/result.cache" colors="false" processIsolation="false" stopOnError="false"
+         stopOnFailure="false" stopOnIncomplete="false" stopOnSkipped="false" verbose="true">
+  <coverage processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">core/classes/</directory>
+      <directory suffix=".php">modules/*/classes/</directory>
+    </include>
+    <exclude>
+      <directory>core/classes/Calendar</directory>
+      <directory>modules/bcb/classes/vendor</directory>
+    </exclude>
+    <report>
+      <text outputFile="php://stdout" showOnlySummary="true"/>
+      <html outputDirectory="tmp/html_coverage"/>
+      <clover outputFile="tmp/coverage.xml"/>
+    </report>
+  </coverage>
+  <logging>
+    <junit outputFile="tmp/junit.xml"/>
+  </logging>
+  <php>
+    <const name="PHPUNIT_MEDIBOARD_TESTSUITE" value="true"/>
+  </php>
+  <testsuites>
+    <testsuite name="UnitTestSuite">
+      <directory>cli/tests/Unit/</directory>
+      <directory>core/tests/Unit/</directory>
+      <directory>modules/*/tests/Unit/</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>

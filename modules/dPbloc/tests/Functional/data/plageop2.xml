@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="" root="">
+  <object class="CPlageOp" id="CPlageOp-2">
+    <field name="date">now</field>
+    <field name="debut">10:00:00</field>
+    <field name="fin">18:00:00</field>
+    <field name="spec_id">selenium</field>
+    <field name="salle_id">salle2</field>
+    <field name="unique_chir">0</field>
+  </object>
+</mediboard-export>

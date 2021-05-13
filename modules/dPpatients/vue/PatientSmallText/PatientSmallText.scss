@@ -1,0 +1,30 @@
+/*
+  @package Mediboard\Patients
+  @author  SAS OpenXtrem <dev@openxtrem.com>
+  @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+  @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+*/
+
+@import "@system/Utils";
+
+.PatientSmallText {
+  display: flex;
+  width: 100%;
+
+  &-etat {
+    display: flex;
+  }
+
+  &-identite {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-nom {
+    @include black-emphasis($high);
+    @include subtitle2;
+
+    margin: 0 $space*2;
+  }
+}

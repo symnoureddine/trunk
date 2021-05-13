@@ -1,0 +1,27 @@
+@import '@system/Utils';
+
+.OxNotify {
+  bottom: $space*4;
+  left: $space*4;
+  position: fixed;
+  z-index: 1001;
+
+  &-line {
+    &.leave {
+      animation: NotifyLineAnimation .15s;
+      animation-timing-function: linear;
+    }
+  }
+}
+
+@keyframes NotifyLineAnimation {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    margin-bottom: -94px;
+    opacity: 0;
+    transform: translateX(-64px);
+  }
+}

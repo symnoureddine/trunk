@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2017-01-10 10:06:55" root="CListeChoix-1">
+  <object class="CListeChoix" id="CListeChoix-1">
+    <field name="nom">ListeChoix</field>
+    <field name="valeurs">Choix 1|Choix 2|Choix 3</field>
+    <field name="group_id">1</field>
+  </object>
+</mediboard-export>

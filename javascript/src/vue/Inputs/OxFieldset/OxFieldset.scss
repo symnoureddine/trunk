@@ -1,0 +1,42 @@
+/*
+  @package Mediboard\System
+  @author  SAS OpenXtrem <dev@openxtrem.com>
+  @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+  @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+*/
+
+@import "@system/Utils";
+
+.OxFieldset {
+  display: flex;
+  flex-direction: column;
+
+  &-actions {
+    padding-bottom: $space;
+    justify-content: center;
+  }
+
+  &-actions,
+  &-content {
+    display: flex;
+    padding: 0;
+  }
+
+  &-icon {
+    padding-right: $space;
+  }
+
+  &-label {
+    @include overline;
+  }
+
+  &-top {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .OxFieldsetGroup {
+    flex: 1;
+  }
+}

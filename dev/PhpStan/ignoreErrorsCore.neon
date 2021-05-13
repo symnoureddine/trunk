@@ -1,0 +1,471 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Function mbTrace not found\\.$#"
+			count: 1
+			path: ../../core/classes/CFileParser.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CMbBackSpec\\:\\:\\$_unlink\\.$#"
+			count: 1
+			path: ../../core/classes/CMbBackSpec.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CStoredObject\\:\\:\\$_ref_object\\.$#"
+			count: 3
+			path: ../../core/classes/CMbMetaObjectPolyfill.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CStoredObject\\:\\:\\$object_id\\.$#"
+			count: 2
+			path: ../../core/classes/CMbMetaObjectPolyfill.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CStoredObject\\:\\:\\$object_class\\.$#"
+			count: 2
+			path: ../../core/classes/CMbMetaObjectPolyfill.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CMbObject\\:\\:\\$_ref_files_by_name\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CStoredObject\\:\\:\\$nom\\.$#"
+			count: 2
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CMbFieldSpec\\:\\:\\$_list\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CStoredObject\\:\\:loadRefFunction\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Mediboard\\\\Files\\\\CDocumentItem\\:\\:loadRefPlageConsult\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Mediboard\\\\Files\\\\CDocumentItem\\:\\:\\$_date\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CMbObject\\:\\:loadRefPlageConsult\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CMbObject\\:\\:\\$_datetime\\.$#"
+			count: 2
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CMbObject\\:\\:\\$entree\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CMbObject\\:\\:\\$date\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CModelObject\\:\\:setObject\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CModelObject\\:\\:loadContent\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CModelObject\\:\\:\\$content_id\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CModelObject\\:\\:\\$_ref_content\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CModelObject\\:\\:\\$_file_path\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CModelObject\\:\\:\\$file_real_filename\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CModelObject\\:\\:fillFields\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CModelObject\\:\\:setCopyFrom\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CModelObject\\:\\:store\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbObject.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CMbPDFMerger\\:\\:Error\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbPDFMerger.php
+
+		-
+			message: "#^Constant K_PATH_MAIN already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Constant K_PATH_URL already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Constant FPDF_FONTPATH already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Constant K_PATH_CACHE already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Constant K_PATH_URL_CACHE already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Constant K_PATH_IMAGES already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Constant K_BLANK_IMAGE already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Constant HEAD_MAGNIFICATION already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Constant K_CELL_HEIGHT_RATIO already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Constant K_TITLE_MAGNIFICATION already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Constant K_SMALL_RATIO already defined$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Method TCPDF\\:\\:Text\\(\\) invoked with 5 parameters, 3 required\\.$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Method TCPDF\\:\\:Cell\\(\\) invoked with 9 parameters, 1\\-8 required\\.$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Method TCPDF\\:\\:Write\\(\\) invoked with 7 parameters, 2\\-4 required\\.$#"
+			count: 1
+			path: ../../core/classes/CMbPdf.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CMbXPath\\:\\:nodePath\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbXPath.php
+
+		-
+			message: "#^Call to an undefined method DOMNode\\:\\:getAttributeNode\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CMbXPath.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CModelObject\\:\\:loadRefModule\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CModelObject.php
+
+		-
+			message: "#^Cannot unset offset mixed on Ox\\\\Core\\\\CMbFieldSpec\\.$#"
+			count: 1
+			path: ../../core/classes/CModelObjectFieldDescription.php
+
+		-
+			message: "#^Default value of the parameter \\#1 \\$table \\(string\\) of method Ox\\\\Core\\\\COracleDataSource\\:\\:loadTables\\(\\) is incompatible with type array\\.$#"
+			count: 1
+			path: ../../core/classes/COracleDataSource.php
+
+		-
+			message: "#^Part \\$table \\(array\\) of encapsed string cannot be cast to string\\.$#"
+			count: 1
+			path: ../../core/classes/COracleDataSource.php
+
+		-
+			message: "#^Method Ox\\\\Core\\\\COracleDataSource\\:\\:insertId\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: ../../core/classes/COracleDataSource.php
+
+		-
+			message: "#^Method Ox\\\\Core\\\\COracleDataSource\\:\\:freeResult\\(\\) should return bool but return statement is missing\\.$#"
+			count: 1
+			path: ../../core/classes/COracleDataSource.php
+
+		-
+			message: "#^Call to method size\\(\\) on an unknown class \\\\OCI\\-Lob\\.$#"
+			count: 1
+			path: ../../core/classes/COracleDataSource.php
+
+		-
+			message: "#^Call to method read\\(\\) on an unknown class \\\\OCI\\-Lob\\.$#"
+			count: 1
+			path: ../../core/classes/COracleDataSource.php
+
+		-
+			message: "#^Function mbTrace not found\\.$#"
+			count: 2
+			path: ../../core/classes/COracleDataSource.php
+
+		-
+			message: "#^Variable \\$t might not be defined\\.$#"
+			count: 2
+			path: ../../core/classes/COracleDataSource.php
+
+		-
+			message: "#^Method Ox\\\\Core\\\\COracleDataSource\\:\\:fetchObject\\(\\) should return object but return statement is missing\\.$#"
+			count: 1
+			path: ../../core/classes/COracleDataSource.php
+
+		-
+			message: "#^Cannot call method rowCount\\(\\) on resource\\.$#"
+			count: 1
+			path: ../../core/classes/CPDODataSource.php
+
+		-
+			message: "#^Method Ox\\\\Core\\\\CPDODataSource\\:\\:foundRows\\(\\) should return int but return statement is missing\\.$#"
+			count: 1
+			path: ../../core/classes/CPDODataSource.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on resource\\.$#"
+			count: 2
+			path: ../../core/classes/CPDODataSource.php
+
+		-
+			message: "#^Cannot call method fetchObject\\(\\) on resource\\.$#"
+			count: 3
+			path: ../../core/classes/CPDODataSource.php
+
+		-
+			message: "#^Default value of the parameter \\#1 \\$table \\(string\\) of method Ox\\\\Core\\\\CPDODataSource\\:\\:loadTables\\(\\) is incompatible with type array\\.$#"
+			count: 1
+			path: ../../core/classes/CPDODataSource.php
+
+		-
+			message: "#^Part \\$table \\(array\\) of encapsed string cannot be cast to string\\.$#"
+			count: 1
+			path: ../../core/classes/CPDODataSource.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CMbObjectSpec\\:\\:\\$collision_keys\\.$#"
+			count: 3
+			path: ../../core/classes/CPlageCalendaire.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CPlageCalendaire.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CMbObjectSpec\\:\\:\\$collision_keys\\.$#"
+			count: 2
+			path: ../../core/classes/CPlageHoraire.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CPlageHoraire.php
+
+		-
+			message: "#^Function quit not found\\.$#"
+			count: 1
+			path: ../../core/classes/CSocketBasedServer.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 7
+			path: ../../core/classes/CStoredObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CMbObject\\:\\:\\$date\\.$#"
+			count: 2
+			path: ../../core/classes/CStoredObject.php
+
+		-
+			message: "#^Variable \\$fwd in PHPDoc tag @var does not match assigned variable \\$class\\.$#"
+			count: 1
+			path: ../../core/classes/CStoredObject.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CModelObject\\:\\:loadAll\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/CStoredObject.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Core\\\\CMbFieldSpec\\:\\:\\$meta\\.$#"
+			count: 1
+			path: ../../core/classes/CStoredObject.php
+
+		-
+			message: "#^Part \\$order \\(array\\) of encapsed string cannot be cast to string\\.$#"
+			count: 1
+			path: ../../core/classes/CStoredObject.php
+
+		-
+			message: "#^Function mbTrace not found\\.$#"
+			count: 3
+			path: ../../core/classes/Chronometer.php
+
+		-
+			message: "#^Parameter \\$event of method Ox\\\\Core\\\\Composer\\\\CComposerScript\\:\\:init\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 2
+			path: ../../core/classes/Composer/CComposerScript.php
+
+		-
+			message: "#^Call to method getComposer\\(\\) on an unknown class Composer\\\\Script\\\\Event\\.$#"
+			count: 1
+			path: ../../core/classes/Composer/CComposerScript.php
+
+		-
+			message: "#^Call to method getIO\\(\\) on an unknown class Composer\\\\Script\\\\Event\\.$#"
+			count: 1
+			path: ../../core/classes/Composer/CComposerScript.php
+
+		-
+			message: "#^Parameter \\$event of method Ox\\\\Core\\\\Composer\\\\CComposerScript\\:\\:preAutoloadDump\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 2
+			path: ../../core/classes/Composer/CComposerScript.php
+
+		-
+			message: "#^Parameter \\$event of method Ox\\\\Core\\\\Composer\\\\CComposerScript\\:\\:postAutoloadDump\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 2
+			path: ../../core/classes/Composer/CComposerScript.php
+
+		-
+			message: "#^Parameter \\$event of method Ox\\\\Core\\\\Composer\\\\CComposerScript\\:\\:updateRoutes\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 2
+			path: ../../core/classes/Composer/CComposerScript.php
+
+		-
+			message: "#^Parameter \\$event of method Ox\\\\Core\\\\Composer\\\\CComposerScript\\:\\:oxClearCache\\(\\) has invalid typehint type Composer\\\\Script\\\\Event\\.$#"
+			count: 2
+			path: ../../core/classes/Composer/CComposerScript.php
+
+		-
+			message: "#^Call to function unset\\(\\) contains undefined variable \\$dPconfig\\.$#"
+			count: 1
+			path: ../../core/classes/Composer/CComposerScript.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\$msg\\)\\: Unexpected token \"\\$msg\", expected type at offset 16$#"
+			count: 1
+			path: ../../core/classes/Composer/CComposerScript.php
+
+		-
+			message: "#^Function mbTrace not found\\.$#"
+			count: 3
+			path: ../../core/classes/Import/CExternalDBImport.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CSQLDataSource\\:\\:readLOB\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/Import/CExternalDBImport.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\CMbObject\\:\\:loadGroupListGuid\\(\\)\\.$#"
+			count: 1
+			path: ../../core/classes/Import/CMbXMLObjectImport.php
+
+		-
+			message: "#^Function d not found\\.$#"
+			count: 1
+			path: ../../core/classes/Kernel/Event/CEventDispatcher.php
+
+		-
+			message: "#^Function exceptionHandler not found\\.$#"
+			count: 1
+			path: ../../core/classes/Kernel/Event/CExceptionListener.php
+
+		-
+			message: "#^Access to an undefined property Symfony\\\\Component\\\\Routing\\\\Route\\:\\:\\$_name\\.$#"
+			count: 5
+			path: ../../core/classes/Kernel/Route/CRouteManager.php
+
+		-
+			message: "#^Access to an undefined property Symfony\\\\Component\\\\Routing\\\\Route\\:\\:\\$_controller\\.$#"
+			count: 2
+			path: ../../core/classes/Kernel/Route/CRouteManager.php
+
+		-
+			message: "#^Access to an undefined property Symfony\\\\Component\\\\Routing\\\\Route\\:\\:\\$_dir\\.$#"
+			count: 2
+			path: ../../core/classes/Kernel/Route/CRouteManager.php
+
+		-
+			message: "#^Access to an undefined property Symfony\\\\Component\\\\Routing\\\\Route\\:\\:\\$_name\\.$#"
+			count: 2
+			path: ../../core/classes/OpenApi/COpenApiManager.php
+
+		-
+			message: "#^PHPDoc tag @throws with type Exception\\|GuzzleHttp\\\\Exception\\\\GuzzleException is not subtype of Throwable$#"
+			count: 1
+			path: ../../core/classes/RestClient/CRestClient.php
+
+		-
+			message: "#^Function l not found\\.$#"
+			count: 2
+			path: ../../core/classes/RestClient/CRestClient.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Installation\\\\Models\\\\CPrerequisite\\:\\:\\$url\\.$#"
+			count: 1
+			path: ../../installation/classes/Controllers/CInstallationController.php
+
+		-
+			message: "#^Access to an undefined property Ox\\\\Installation\\\\Models\\\\CPrerequisite\\:\\:\\$path\\.$#"
+			count: 1
+			path: ../../installation/classes/Controllers/CInstallationController.php
+
+		-
+			message: "#^Call to an undefined method Ox\\\\Core\\\\Api\\\\Resources\\\\CAbstractResource\\:\\:createLinksPagination\\(\\)\\.$#"
+			count: 2
+			path: ../../installation/classes/Controllers/CInstallationController.php

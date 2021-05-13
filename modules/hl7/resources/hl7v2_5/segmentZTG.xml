@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<segment>
+    <name>ZTG</name>
+    <description>TAMM - GALAXIE (proprio)</description>
+    <elements>
+        <field minOccurs="0">
+            <name>ZTG.1</name>
+            <description>Identifiant de l'agenda</description>
+            <datatype>ST</datatype>
+        </field>
+        <field minOccurs="0">
+            <name>ZTG.2</name>
+            <description>Identifiant de connexion</description>
+            <datatype>ST</datatype>
+        </field>
+    </elements>
+</segment>

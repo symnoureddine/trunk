@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ruleset name="Custom PhpCompatibility ruleset">
+  <description>OX rules for PHP Compatibility</description>
+
+  <!-- Run against the PHPCompatibility ruleset -->
+  <rule ref="PHPCompatibility"/>
+
+  <!-- Check for cross-version support for PHP -->
+  <config name="testVersion" value="7.1-7.3"/>
+
+  <!-- Whitelist functions -->
+  <rule ref="PHPCompatibility">
+      <exclude name="PHPCompatibility.FunctionUse.NewFunctions.is_countableFound"/>
+      <exclude name="PHPCompatibility.FunctionUse.NewFunctions.array_key_firstFound"/>
+  </rule>
+
+</ruleset>

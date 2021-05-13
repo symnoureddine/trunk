@@ -1,0 +1,100 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks'
+
+
+<Meta
+  title="Colors"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+    }
+  }}
+/>
+
+# Colors
+
+## Primary
+
+Color used for primary links and action elements that can be clicked or touched.
+
+There are several variations of the primary, they can be used to increase the contrast of the UI elements to make them more or less visible compared to the rest of the interface.
+
+<ColorPalette>
+  <ColorItem title="Default Primary" subtitle="$primary" colors={['#3F51B5']} />
+  <ColorItem title="Primary 900" subtitle="$primary-900" colors={['#1A237E']} />
+  <ColorItem title="Primary 800" subtitle="$primary-800" colors={['#283593']} />
+  <ColorItem title="Primary 700" subtitle="$primary-700" colors={['#303F9F']} />
+  <ColorItem title="Primary 600" subtitle="$primary-600" colors={['#3949AB']} />
+  <ColorItem title="Primary 500" subtitle="$primary-500" colors={['#3F51B5']} />
+  <ColorItem title="Primary 400" subtitle="$primary-400" colors={['#5C6BC0']} />
+  <ColorItem title="Primary 300" subtitle="$primary-300" colors={['#7986CB']} />
+  <ColorItem title="Primary 200" subtitle="$primary-200" colors={['#9FA8DA']} />
+  <ColorItem title="Primary 100" subtitle="$primary-100" colors={['#C5CAE9']} />
+  <ColorItem title="Primary 50" subtitle="$primary-50" colors={['#E8EAF6']} />
+</ColorPalette>
+
+## Secondary
+
+Color used for ancillary actions or other side interactions with the interface.
+
+<ColorPalette>
+  <ColorItem title="Default Secondary" subtitle="$secondary" colors={['#03A9F4']} />
+  <ColorItem title="Secondary 900" subtitle="$secondary-900" colors={['#01579B']} />
+  <ColorItem title="Secondary 800" subtitle="$secondary-800" colors={['#0277BD']} />
+  <ColorItem title="Secondary 700" subtitle="$secondary-700" colors={['#0288D1']} />
+  <ColorItem title="Secondary 600" subtitle="$secondary-600" colors={['#039BE5']} />
+  <ColorItem title="Secondary 500" subtitle="$secondary-500" colors={['#03A9F4']} />
+  <ColorItem title="Secondary 400" subtitle="$secondary-400" colors={['#29B6F6']} />
+  <ColorItem title="Secondary 300" subtitle="$secondary-300" colors={['#4FC3F7']} />
+  <ColorItem title="Secondary 200" subtitle="$secondary-200" colors={['#81D4FA']} />
+  <ColorItem title="Secondary 100" subtitle="$secondary-100" colors={['#B3E5FC']} />
+  <ColorItem title="Secondary 50" subtitle="$secondary-50" colors={['#E1F5FE']} />
+</ColorPalette>
+
+## Grey
+
+<ColorPalette>
+  <ColorItem title="Grey 900" subtitle="$grey-900" colors={['#263238']} />
+  <ColorItem title="Grey 800" subtitle="$grey-800" colors={['#37474F']} />
+  <ColorItem title="Grey 700" subtitle="$grey-700" colors={['#455A64']} />
+  <ColorItem title="Grey 600" subtitle="$grey-600" colors={['#546E7A']} />
+  <ColorItem title="Grey 500" subtitle="$grey-500" colors={['#607D8B']} />
+  <ColorItem title="Grey 400" subtitle="$grey-400" colors={['#78909C']} />
+  <ColorItem title="Grey 300" subtitle="$grey-300" colors={['#90A4AE']} />
+  <ColorItem title="Grey 200" subtitle="$grey-200" colors={['#B0BEC5']} />
+  <ColorItem title="Grey 100" subtitle="$grey-100" colors={['#CFD8DC']} />
+  <ColorItem title="Grey 50" subtitle="$grey-50" colors={['#ECEFF1']} />
+</ColorPalette>
+
+## State
+
+### Error
+
+<ColorPalette>
+  <ColorItem title="Error Text" subtitle="$error-text" colors={['#FF3100']} />
+  <ColorItem title="Error Surface" subtitle="$error-surface" colors={['#FF5252']} />
+</ColorPalette>
+
+### Warning
+
+<ColorPalette>
+  <ColorItem title="Warning Text" subtitle="$warning-text" colors={['#FF9800']} />
+  <ColorItem title="Warning Surface" subtitle="$warning-surface" colors={['#E65100']} />
+</ColorPalette>
+
+### Success
+
+<ColorPalette>
+  <ColorItem title="Success Text" subtitle="$success-text" colors={['#43A047']} />
+  <ColorItem title="Success Surface" subtitle="$success-surface" colors={['#388E3C']} />
+</ColorPalette>
+
+## Backgrounds
+
+<ColorPalette>
+  <ColorItem title="Background Default" subtitle="$background-default" colors={['#F0F1F3']} />
+  <ColorItem title="Background White" subtitle="$background-white:" colors={['#FFFFFF']} />
+  <ColorItem title="Background Light" subtitle="$background-white:" colors={['#FAFAFA']} />
+  <ColorItem title="Background Dark" subtitle="$background-white:" colors={['#E8E8E8']} />
+  <ColorItem title="Background Info" subtitle="$background-white:" colors={['#E5E7F5']} />
+</ColorPalette>

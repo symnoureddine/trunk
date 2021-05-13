@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="" root="">
+  <object class="CGroups" id="CGroups-1">
+    <field name="text">Clinique</field>
+  </object>
+  <object class="CFunctions" id="CFunctions-1" group_id="CGroups-1">
+    <field name="type">cabinet</field>
+    <field name="text">TestCabinet</field>
+    <field name="color">FFFFFF</field>
+  </object>
+  <object class="CUser" id="CUser-1">
+    <field name="user_username">testprofile</field>
+    <field name="user_last_name">test</field>
+    <field name="user_type">10</field>
+    <field name="template">1</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-1" function_id="CFunctions-1" user_id="CUser-2">
+    <field name="remote">1</field>
+    <field name="actif">1</field>
+    <field name="adeli">991111170</field>
+  </object>
+  <object class="CUser" id="CUser-2" profile_id="CUser-1">
+    <field name="user_username">primary</field>
+    <field name="user_password">434f6ae271c1af60b04418450501597c</field>
+    <field name="user_type">10</field>
+    <field name="user_first_name">Bob</field>
+    <field name="user_last_name">PRIMARY</field>
+  </object>
+  <object class="CMediusers" id="CMediusers-2" function_id="CFunctions-1" user_id="CUser-3" main_user_id="CMediusers-1">
+    <field name="remote">1</field>
+    <field name="actif">1</field>
+    <field name="adeli">991114240</field>
+  </object>
+  <object class="CUser" id="CUser-3" profile_id="CUser-1">
+    <field name="user_username">second</field>
+    <field  name="_user_password">YMoeJ5j5</field>
+    <!--<field name="_user_password">e85fda4f302dab74c7949274f156bd6ce22b19bdd2dada91a967e10a5dc039a4</field>-->
+    <!--<field name="user_salt">122498ce5c775e8960305a71d0e868c48c87b624bf8ab92a6eae1415775d6228</field>-->
+    <!-- MD5 for YMoeJ5j5 -->
+    <field name="user_type">10</field>
+    <field name="user_first_name">Bob</field>
+    <field name="user_last_name">SECOND</field>
+  </object>
+</mediboard-export>

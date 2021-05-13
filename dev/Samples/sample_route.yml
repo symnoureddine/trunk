@@ -1,0 +1,30 @@
+module_lorem_ipsum: #only one unique prefix per yaml
+  path: /api/application/module/loremIpsum/{param_1}/{param_2}
+  controller: Ox\Application\Controllers\CModuleController::loremIpsum # required @api in function DocComment
+  methods: GET # allowed : GET POST PUT DELETE HEAD OPTIONS available : GET or [GET,HEAD]
+  requirement: # in path
+    param_1: '\d+'
+    param_2: '\w+'
+  options:
+    description: Returns a loremIpsum
+    openapi: true # default true, false disabled doc generation
+    parameters: # in query ?foo=bar
+      foo: # bar,value2
+    accept:
+      - application/json
+      - application/xml
+    security: # default all security, [] for public route, required @api public in function DocComment
+      basic: []
+      token: []
+      login: []
+      session: []
+      oauth: []  # [scope]
+    permission: read # default read, allowed : read edit admin none
+    body:
+      required: false
+      content-type:
+        - application/json
+        - application/xml
+    responses:
+      200: succes
+      500: fail

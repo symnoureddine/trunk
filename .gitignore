@@ -1,0 +1,52 @@
+# Root ignores
+.project
+.projectOptions
+.phpunit.result.cache
+.settings
+.cache
+.buildpath
+.awcache
+.npmrc
+/.idea
+**/Thumbs.db
+**/.DS_Store
+package-lock.json
+
+# Includes
+includes/config.php
+includes/classmap.php
+includes/classref.php
+includes/legacy_actions.php
+includes/config_dist.php
+includes/all_routes.yml
+includes/documentation.yml
+
+# Installation
+installation/vue/tsconfig.json
+
+# MB VueJS
+.babelrc
+tsconfig.json
+javascript/dist/*
+
+# User files
+files/*
+!files/.htaccess
+!files/editor/
+
+# Temporary files
+tmp/*
+!tmp/.keep
+
+# Library files
+lib/*
+!lib/.keep
+
+# svn
+.svn
+
+# vendor
+/vendor
+
+# nodes
+node_modules

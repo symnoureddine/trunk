@@ -1,0 +1,54 @@
+installation_home:
+  path: /installation/
+  controller: Ox\Installation\Controllers\CInstallationController::home
+  methods: GET
+
+installation_requirements:
+  path: /installation/requirements
+  controller: Ox\Installation\Controllers\CInstallationController::requirements
+  methods: GET
+
+installation_libraries:
+  path: /installation/libraries
+  controller: Ox\Installation\Controllers\CInstallationController::libraries
+  methods: GET
+
+installation_packages:
+  path: /installation/packages
+  controller: Ox\Installation\Controllers\CInstallationController::packages
+  methods: GET
+
+installation_configs:
+  path: /installation/configs
+  controller: Ox\Installation\Controllers\CInstallationController::configs
+  methods: GET
+
+installation_infos:
+  path: /installation/infos
+  controller: Ox\Installation\Controllers\CInstallationController::infos
+  methods: GET
+
+installation_logs:
+  path: /installation/logs
+  controller: Ox\Installation\Controllers\CInstallationController::logs
+  methods: GET
+
+installation_errors:
+  path: /installation/errors
+  controller: Ox\Installation\Controllers\CInstallationController::errors
+  methods: GET
+
+installation_errors_buffer:
+  path: /installation/errors/bufferStatistics
+  controller: Ox\Installation\Controllers\CInstallationController::bufferStatistics
+  methods: GET
+
+installation_authentication_check:
+  path: /installation/authentication
+  controller: Ox\Installation\Controllers\CInstallationController::authenticationCheck
+  methods: GET
+
+installation_dependances_check:
+  path: /installation/dependances
+  controller: Ox\Installation\Controllers\CInstallationController::dependancesCheck
+  methods: GET

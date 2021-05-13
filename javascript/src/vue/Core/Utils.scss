@@ -1,0 +1,354 @@
+/*
+  @package Mediboard\System
+  @author  SAS OpenXtrem <dev@openxtrem.com>
+  @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+  @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+*/
+
+// Primary color
+$primary: #3F51B5;
+$primary-900: #1A237E;
+$primary-800: #283593;
+$primary-700: #303F9F;
+$primary-600: #3949AB;
+$primary-500: #3F51B5;
+$primary-400: #5C6BC0;
+$primary-300: #7986CB;
+$primary-200: #9FA8DA;
+$primary-100: #C5CAE9;
+$primary-50: #E8EAF6;
+
+// Secondary color
+$secondary: #03A9F4;
+$secondary-900: #01579B;
+$secondary-800: #0277BD;
+$secondary-700: #0288D1;
+$secondary-600: #039BE5;
+$secondary-500: #03A9F4;
+$secondary-400: #29B6F6;
+$secondary-300: #4FC3F7;
+$secondary-200: #81D4FA;
+$secondary-100: #B3E5FC;
+$secondary-50: #E1F5FE;
+
+// Grey
+$grey-primary: #263238;
+$grey-900: #263238;
+$grey-800: #37474F;
+$grey-700: #455A64;
+$grey-600: #546E7A;
+$grey-500: #607D8B;
+$grey-400: #78909C;
+$grey-300: #90A4AE;
+$grey-200: #B0BEC5;
+$grey-100: #CFD8DC;
+$grey-50: #ECEFF1;
+
+// Colors
+$blue-light: #2196F3;
+
+$pink-light: #EC407A;
+$pink-lighter: #F06292;
+
+// State colors
+$error-text: #FF3100;
+$error-surface: #FF5252;
+
+$warning-text: #FF9800;
+$warning-surface: #E65100;
+
+$success-text: #43A047;
+$success-surface: #388E3C;
+
+// Backgrounds
+$background-default: #F0F1F3;
+$background-white: #FFFFFF;
+$background-light: #FAFAFA;
+$background-dark: #E8E8E8;
+$background-info: #E5E7F5;
+
+// Elevation
+@mixin elevation ($dp) {
+  @if $dp==0 {
+    box-shadow: none
+  }
+  @else if $dp==1 {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.14), 0 2px 2px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  @else if $dp==2 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14), 0 3px 4px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.2);
+  }
+  @else if $dp==3 {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.14), 0 3px 4px rgba(0, 0, 0, 0.12), 0 1px 8px rgba(0, 0, 0, 0.2);
+  }
+  @else if $dp==4 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.12), 0 1px 10px rgba(0, 0, 0, 0.2);
+  }
+  @else if $dp==6 {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.14), 0 1px 18px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  @else if $dp==8 {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.14), 0 3px 14px rgba(0, 0, 0, 0.12), 0 4px 5px rgba(0, 0, 0, 0.2);
+  }
+  @else if $dp==9 {
+    box-shadow: 0 9px 12px rgba(0, 0, 0, 0.14), 0 3px 16px rgba(0, 0, 0, 0.12), 0 5px 6px rgba(0, 0, 0, 0.2);
+  }
+  @else if $dp==12 {
+    box-shadow: 0 12px 17px rgba(0, 0, 0, 0.14), 0 5px 22px rgba(0, 0, 0, 0.12), 0 7px 8px rgba(0, 0, 0, 0.2);
+  }
+  @else if $dp==16 {
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.14), 0 6px 30px rgba(0, 0, 0, 0.12), 0 8px 10px rgba(0, 0, 0, 0.2);
+  }
+  @else if $dp==24 {
+    box-shadow: 0 24px 38px rgba(0, 0, 0, 0.14), 0 9px 46px rgba(0, 0, 0, 0.12), 0 11px 15px rgba(0, 0, 0, 0.2);
+  }
+  @else {
+    @error "Elevation #{$dp} inconnue";
+  }
+}
+
+
+// Emphasis
+$high: high;
+$medium: medium;
+$low: low;
+
+// Spacing
+$space: 4px;
+
+$black: #000000;
+$black-high-emphasis: rgba(0, 0, 0, 0.87);
+$black-medium-emphasis: rgba(0, 0, 0, 0.6);
+$black-low-emphasis: rgba(0, 0, 0, 0.38);
+
+$white: #FFFFFF;
+$white-high-emphasis: rgba(255, 255, 255, 1);
+$white-medium-emphasis: rgba(255, 255, 255, 0.7);
+$white-low-emphasis: rgba(255, 255, 255, 0.5);
+
+// Convert Hex color value to rgba
+@function alpha($hexcolor, $opacity: 1) {
+  @return rgba($hexcolor, $opacity);
+}
+
+// Borders
+$border: 1px solid alpha($grey-900, 0.12);
+
+
+@mixin black-emphasis($emphasis) {
+  @if ($emphasis == $high) {
+    color: rgba(0, 0, 0, 0.87);
+  }
+  @else if ($emphasis == $medium) {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  @else if ($emphasis == $low) {
+    color: rgba(0, 0, 0, 0.38);
+  }
+  @else {
+    @error "Emphasis #{$emphasis} inconnue";
+  }
+}
+
+@mixin white-emphasis($emphasis) {
+  @if ($emphasis == $high) {
+    color: rgba(255, 255, 255, 1);
+  }
+  @else if ($emphasis == $medium) {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  @else if ($emphasis == $low) {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  @else {
+    @error "Emphasis #{$emphasis} inconnue";
+  }
+}
+
+@mixin hoverable {
+  &:hover {
+    background-color: alpha($secondary-50, 0.4);
+    cursor: pointer;
+  }
+}
+
+@mixin h1 {
+  font-family: Roboto;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: -1.5px;
+  line-height: 112px;
+}
+
+@mixin h2 {
+  font-family: Roboto;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  line-height: 70px;
+}
+
+@mixin h3 {
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 56px;
+}
+
+@mixin h4 {
+  font-family: Roboto;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  line-height: 40px;
+}
+
+@mixin h5 {
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 28px;
+}
+
+@mixin h6 {
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+  line-height: 30px;
+}
+
+@mixin body1 {
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+}
+
+@mixin body2 {
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+
+}
+
+@mixin subtitle1 {
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+@mixin subtitle2 {
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+@mixin overline {
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+@mixin caption {
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.4px;
+  line-height: 14px;
+}
+
+
+@mixin button {
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.75px;
+  line-height: 16px;
+}
+
+
+// Cards
+@mixin cardOutlinedDefault {
+  background-color: $background-white;
+  border: 1px solid $grey-100;
+  border-radius: 4px;
+}
+
+@mixin fullSize {
+  height: 100%;
+  width: 100%;
+}
+
+
+// Animations
+@mixin breathing {
+  animation-direction: alternate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: breathing;
+  opacity: 1;
+}
+.breathingAnimation {
+  @include breathing;
+}
+@keyframes breathing {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+
+@mixin shakeRotate {
+  animation: shake 1.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  animation-iteration-count: infinite;
+  backface-visibility: hidden;
+  transform-origin: center;
+}
+
+.shakeRotateAnimation {
+  @include shakeRotate;
+}
+
+@keyframes shakeRotate {
+  0% { transform: rotate(0); }
+  35% { transform: rotate(0); }
+  40% { transform: rotate(7deg); }
+  45% { transform: rotate(-7deg); }
+  50% { transform: rotate(5deg); }
+  55% { transform: rotate(-5deg); }
+  60% { transform: rotate(3deg); }
+  65% { transform: rotate(-3deg); }
+  70% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+  80% { transform: rotate(0); }
+  100% { transform: rotate(0); }
+}

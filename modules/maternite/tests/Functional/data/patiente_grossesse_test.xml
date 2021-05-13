@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediboard-export date="2015-11-04 16:01:54" root="CPatient-2230">
+  <object class="CPatient" id="CPatient-2230">
+    <field name="nom">MOTHERLASTNAME</field>
+    <field name="prenom">Motherfirstname</field>
+    <field name="nom_soundex2">MRNT</field>
+    <field name="prenom_soundex2">MRNT</field>
+    <field name="naissance">1991-10-17</field>
+    <field name="sexe">f</field>
+    <field name="civilite">mme</field>
+    <field name="vip">0</field>
+    <field name="tutelle">aucune</field>
+    <field name="situation_famille">M</field>
+    <field name="is_smg">0</field>
+    <field name="medecin_traitant_declare">0</field>
+    <field name="incapable_majeur">0</field>
+    <field name="ATNC">0</field>
+    <field name="cmu">0</field>
+    <field name="ame">0</field>
+    <field name="ald">0</field>
+    <field name="acs">0</field>
+    <field name="acs_type">none</field>
+    <field name="code_exo">0</field>
+    <field name="regime_am">0</field>
+    <field name="qual_beneficiaire">00</field>
+    <field name="rang_naissance">1</field>
+    <field name="assure_nom">MOTHERLASTNAME</field>
+    <field name="assure_prenom">Motherfirstname</field>
+    <field name="assure_naissance">1991-10-17</field>
+    <field name="assure_sexe">f</field>
+    <field name="assure_civilite">mme</field>
+    <field name="allow_sms_notification">0</field>
+    <field name="allow_sisra_send">0</field>
+  </object>
+  <object class="CGrossesse" id="CGrossesse-202" parturiente_id="CPatient-2230">
+    <field name="active">1</field>
+    <field name="multiple">0</field>
+    <field name="allaitement_maternel">0</field>
+    <field name="lieu_accouchement">sur_site</field>
+    <field name="terme_prevu">now</field>
+  </object>
+</mediboard-export>

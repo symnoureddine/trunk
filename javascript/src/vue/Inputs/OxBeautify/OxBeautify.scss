@@ -1,0 +1,7 @@
+@import '@system/Utils';
+
+.OxBeautify {
+  &.void {
+    @include black-emphasis($low);
+  }
+}

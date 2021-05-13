@@ -1,0 +1,48 @@
+/*
+  @package Mediboard\Developpement
+  @author  SAS OpenXtrem <dev@openxtrem.com>
+  @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+  @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+*/
+
+@import "@system/Utils";
+
+.Atome {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  &-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-right: $space*2;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-props {
+    border-left: $border;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-title {
+    @include h4;
+
+    margin-top: $space*3;
+  }
+}
+
+.AtomeEvent {
+  @include overline;
+
+  border: $border;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: $space;
+}

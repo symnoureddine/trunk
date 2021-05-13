@@ -1,0 +1,389 @@
+//
+// @package Mediboard\Style\Mediboard
+// @author  SAS OpenXtrem <dev@openxtrem.com>
+// @license https://www.gnu.org/licenses/gpl.html GNU General Public License
+// @license https://www.openxtrem.com/licenses/oxol.html OXOL OpenXtrem Open License
+//
+
+$menu-compact-width: (3*96px)+(10*$space);
+$menu-extended-width: (16+$menu-compact-width);
+$menu-compact-width-tamm: (6*96px)+(10*$space);
+$menu-extended-width-tamm: 16+$menu-compact-width-tamm;
+
+@mixin nav-item() {
+  width: 64px;
+  height: 64px;
+  margin: 12px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+
+  > span {
+    white-space: nowrap;
+    font-size: 34px;
+    color: $white;
+    background-color: rgba(0, 0, 0, .25);
+    display: block;
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    line-height: 64px;
+    overflow: hidden;
+  }
+}
+
+@mixin nav-item-text($height: 24px) {
+  color: $grey-900;
+  height: $height;
+  @include caption();
+  line-height: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-modules {
+  @include border-radius();
+  @include shadow1();
+  position: fixed;
+  left: 32px;
+  display: none;
+  padding: #{2*$space};
+  width: $menu-compact-width;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: $white;
+  z-index: 499;
+  top: 71px;
+  opacity: 1;
+  transition: max-height .2s, height .2s;
+
+  &.nav-modules-tamm {
+    width: $menu-compact-width-tamm;
+  }
+
+  &.displayed {
+    @include nav-menu-displayed();
+    display: block;
+  }
+
+  > .nav-modules-searcher {
+    width: 100%;
+    padding: $space;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    > div {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  > .nav-modules-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    > .nav-module-element {
+      position: relative;
+      > .nav-module-element-content {
+        @include border-radius();
+        @include ripple-effect($primary);
+        cursor: pointer;
+        margin: 0 $space $space $space;
+        width: 96px;
+        height: 104px;
+        text-align: center;
+        background: transparent;
+        transition: background .25s;
+        position: relative;
+        display: block;
+
+        > .img-poc {
+          @include nav-item();
+        }
+
+        > span {
+          @include nav-item-text();
+          width: 100%;
+          justify-content: center;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+      &.nav-module-hidden {
+        display: none;
+      }
+      &:hover,
+      &.selected {
+        .nav-module-element-content {
+          background-color: $primary-50;
+        }
+
+        > .nav-module-plus {
+          opacity: 1;
+          transform: scale(1);
+          transition-delay: 0.6s;
+        }
+      }
+
+      .nav-module-plus {
+        background: $white;
+        border: 1px solid $secondary;
+        border-radius: 50%;
+        box-shadow: 0 2px rgba(12, 12, 13, 0.1);
+        transform: scale(0.25);
+        transition-duration: 150ms;
+        transition-property: transform, opacity;
+        position: absolute;
+        top: 3px;
+        right: 10px;
+        opacity: 0;
+        cursor: pointer;
+        /**
+          Icon
+         */
+        width: 24px;
+        height: 24px;
+        &::before {
+          @include fontawesome(12px, 23px);
+          width: 24px;
+          height: 24px;
+          display: block;
+          text-align: center;
+          @include special-content("f142");
+          border-radius: 50%;
+          color: $secondary;
+        }
+
+        &.nav-module-plus-loading {
+          &::before {
+            @include special-content("f110");
+            font-size: 12px;
+            line-height: 26px;
+            animation-name: rotationAnimation;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+          }
+        }
+      }
+
+    }
+
+    > .nav-module-separator {
+      display: none;
+      width: 100%;
+      height: 1px;
+      background: $grey-100;
+      margin: $space 0 #{$space*2} 0;
+    }
+  }
+
+  .nav-module-sub-menu {
+    position: fixed;
+  }
+
+  > .nav-modules-plus {
+    position: absolute;
+    @include subtitle2();
+    width: 100%;
+    height: 32px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid $grey-100;
+    color: $grey-primary;
+    cursor: pointer;
+    margin-left: -#{$space*2};
+  }
+
+  > .nav-modules-void {
+    height: 100%;
+    width: 100%;
+    background: none;
+    display: none;
+  }
+
+  &.compact {
+    max-height: 410px;
+    height: 410px;
+    &.nav-modules-tamm {
+      max-height: 306px;
+      height: 306px;
+
+      > .nav-modules-searcher {
+        display: none;
+      }
+    }
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &.me-mac {
+    width: $menu-compact-width !important;
+    &.nav-modules-tamm {
+      width: $menu-compact-width-tamm !important;
+    }
+  }
+
+  &.extended {
+    width: $menu-extended-width;
+    max-height: calc(100% - 132px);
+    height: auto;
+    box-sizing: content-box;
+
+    &.nav-modules-tamm {
+      width: $menu-extended-width-tamm;
+      .nav-modules-content > .nav-module-separator {
+        display: none;
+      }
+    }
+
+    > .nav-modules-content {
+      > .nav-module-element.nav-module-hidden {
+        display: block;
+      }
+      > .nav-module-separator {
+        display: block;
+      }
+    }
+    > .nav-modules-plus {
+      display: none;
+    }
+    > .nav-modules-void {
+      height: 0;
+      width: 100%;
+      background: none;
+    }
+  }
+
+  > .nav-modules-content-tamm > .nav-module-tamm-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .nav-module-tamm-header {
+      width: 100%;
+      padding-left: #{$space*4};
+
+      .nav-module-tamm-home {
+        padding: #{$space} 0;
+        @include h6;
+        cursor: pointer;
+        width: 50%;
+        transition: color .25s linear;
+
+        &::after {
+          @include fontawesome(12px, 1.5);
+          @include special-content('f105');
+          margin-left: $space;
+          vertical-align: middle;
+          position: absolute;
+        }
+
+        &:hover {
+          color: $primary;
+
+          &::after {
+            animation: wobble .27s;
+            animation-delay: 0.1s;
+          }
+        }
+        @keyframes wobble {
+          0% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(6px);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+      }
+    }
+
+    .nav-module-tamm-content {
+      flex-grow: 1;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      > .nav-module-tamm-element {
+        height: auto;
+        margin: 0 $space $space $space;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        flex-basis: 30%;
+        flex-grow: 1;
+        box-sizing: border-box;
+        padding-left: 12px;
+
+        .nav-module-tamm-icon {
+          @include overline();
+          //font-size: 13px;
+          margin: 12px 0;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          @include black-emphasis($opacity-medium-emphasis-black);
+          > span {
+            $icon-size: 18px;
+            width: $icon-size;
+            height: $icon-size;
+            border-radius: 4px;
+            background: $primary-300;
+            margin-right: 4px;
+            text-align: center;
+            overflow: hidden;
+            $text-shadow-color : $primary;
+            $text-shadow : 1px 1px $text-shadow-color;
+            @for $i from 2 to 10 {
+              $text-shadow : $text-shadow, #{$i}px #{$i}px $text-shadow-color;
+            }
+            text-shadow : $text-shadow;
+            &::before {
+              @include fontawesome(#{$icon-size - 6}, $icon-size);
+              color: $white;
+              margin: auto;
+            }
+            &.nav-module-tamm-account::before {
+              @include special-content("f007");
+            }
+            &.nav-module-tamm-settings::before {
+              @include special-content("f013");
+            }
+            &.nav-module-tamm-tools::before {
+              @include special-content("f0ad");
+            }
+          }
+        }
+        > a {
+          @include nav-item-text(26px);
+          white-space: nowrap;
+          font-size: 12px;
+          transition: background .1s;
+          border-radius: 4px;
+          width: 100%;
+          padding-left: 22px;
+          box-sizing: border-box;
+          cursor: pointer;
+          &:hover {
+            background-color: $primary-50;
+          }
+        }
+
+      }
+    }
+  }
+
+}
